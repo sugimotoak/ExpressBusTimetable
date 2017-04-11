@@ -1,0 +1,12 @@
+PODS:
+  - CSV.swift (1.1.2)
+
+DEPENDENCIES:
+  - CSV.swift (~> 1.1)
+
+SPEC CHECKSUMS:
+  CSV.swift: 0aad3b06980034c8fa296456b708ac9128ebbdf9
+
+PODFILE CHECKSUM: dbb5c7ee91c46c659c113f58983da0b9b6cdef30
+
+COCOAPODS: 1.1.1
