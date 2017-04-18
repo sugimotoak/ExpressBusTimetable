@@ -26,7 +26,7 @@ class CommutingViewController: UIViewController, UITableViewDataSource, UITableV
         let onBusStop = UserDefaults.onBusStop
         let offBusStop = UserDefaults.offBusStop
         ctList = timetableStatus.getTimetable().getCommutingTimetable(onBusStop, offBusStop)
-        self.navigationItem.title = onBusStop + "->" + offBusStop
+        navigationItem.title = onBusStop + "->" + offBusStop
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -52,7 +52,7 @@ class CommutingViewController: UIViewController, UITableViewDataSource, UITableV
         ctList = timetable.getCommutingTimetable(onBusStop, offBusStop)
         tableView.reloadData()
         
-        self.navigationItem.title = onBusStop + "->" + offBusStop
+        navigationItem.title = onBusStop + "->" + offBusStop
     }
     
     override func didReceiveMemoryWarning() {

@@ -38,8 +38,8 @@ public extension UserDefaults {
         }
     }
     
-    static var timetableStatus : TimetableStatus {
-        get{
+    static var timetableStatus: TimetableStatus {
+        get {
             return TimetableStatus(rawValue: getValue(key: KEY_TIMETABLE_STATUS, defaultValue: DEFAULT_TIMETABLE_STATUS))!
         }
         set(value) {

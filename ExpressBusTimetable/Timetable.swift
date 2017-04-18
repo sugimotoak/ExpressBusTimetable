@@ -14,11 +14,11 @@ enum BusStopStatus {
     case OFF
 }
 
-public enum TimetableStatus:String {
-    case WeekdayUp = "WeekdayUp"
-    case WeekdayDown = "WeekdayDown"
-    case WeekendUp = "WeekendUp"
-    case WeekendDown = "WeekendDown";
+public enum TimetableStatus: String {
+    case WeekdayUp
+    case WeekdayDown
+    case WeekendUp
+    case WeekendDown
     
     func switchUpDown() -> TimetableStatus {
         switch self {
@@ -76,19 +76,18 @@ class Timetable {
     var timetable = [[String]]()
     var countField = 0
     
-    init(fileName:String) {
-        loadTimetable(fileName)
+    init(fileName: String) {
+        self.loadTimetable(fileName)
     }
     
     func loadTimetable(_ fileName: String) {
         let filePath = Bundle.main.path(forResource: fileName, ofType: "csv")!
         let stream = InputStream(fileAtPath: filePath)!
-        print("file : kimitsu_tokyo_weekday_up.csv");
+        print("file : kimitsu_tokyo_weekday_up.csv")
         
-        
-        do{
+        do {
             
-            var status : BusStopStatus = .ON
+            var status: BusStopStatus = .ON
             for row in try CSV(stream: stream) {
                 
                 countField = row.count
@@ -124,7 +123,6 @@ class Timetable {
                     }
                 }
                 
-                
             }
         } catch {
             print("error")
@@ -137,15 +135,12 @@ class Timetable {
         print("\(busComList)")
         print("\(timetable)")
         
-        
-        
-        
     }
-
+    
     func getCommutingTimetable(_ onBusStop: String, _ offBusStop: String) -> [CommutingTimetable] {
-        var onBusStopIndex:Int = 0
-        var offBusStopIndex:Int = 0
-        for (index,busStop) in busStopList.enumerated() {
+        var onBusStopIndex: Int = 0
+        var offBusStopIndex: Int = 0
+        for (index, busStop) in busStopList.enumerated() {
             if onBusStop == busStop {
                 onBusStopIndex = index
             }
@@ -156,19 +151,18 @@ class Timetable {
         print("\(onBusStopIndex):\(onBusStop)")
         print("\(offBusStopIndex):\(offBusStop)")
         
-        
         var ctList = [CommutingTimetable]()
         for row in timetable {
             if row[onBusStopIndex] != none && row[offBusStopIndex] != none
-            && row[onBusStopIndex] != through && row[offBusStopIndex] != through {
-                var destinationBusStop:String = ""
+                && row[onBusStopIndex] != through && row[offBusStopIndex] != through {
+                var destinationBusStop: String = ""
                 for i in (0..<busStopList.count).reversed() {
                     if row[i] != none {
                         destinationBusStop = busStopList[i]
                         break
                     }
                 }
-                let ct = CommutingTimetable(row[onBusStopIndex], row[offBusStopIndex],destinationBusStop)
+                let ct = CommutingTimetable(row[onBusStopIndex], row[offBusStopIndex], destinationBusStop)
                 ctList.append(ct)
             }
         }
@@ -176,28 +170,28 @@ class Timetable {
     }
 }
 
-class WeekdayUpTimetable :Timetable{
+class WeekdayUpTimetable: Timetable {
     static let sharedInstance = WeekdayUpTimetable()
     private init() {
         super.init(fileName: "kimitsu_tokyo_weekday_up")
     }
 }
 
-class WeekdayDownTimetable :Timetable{
+class WeekdayDownTimetable: Timetable {
     static let sharedInstance = WeekdayDownTimetable()
     private init() {
         super.init(fileName: "kimitsu_tokyo_weekday_down")
     }
 }
 
-class WeekendUpTimetable :Timetable{
+class WeekendUpTimetable: Timetable {
     static let sharedInstance = WeekendUpTimetable()
     private init() {
         super.init(fileName: "kimitsu_tokyo_weekend_up")
     }
 }
 
-class WeekendDownTimetable :Timetable{
+class WeekendDownTimetable: Timetable {
     static let sharedInstance = WeekendDownTimetable()
     private init() {
         super.init(fileName: "kimitsu_tokyo_weekend_down")
