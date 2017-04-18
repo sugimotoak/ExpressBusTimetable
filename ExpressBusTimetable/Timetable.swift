@@ -14,11 +14,11 @@ enum BusStopStatus {
     case OFF
 }
 
-enum TimetableStatus {
-    case WeekdayUp
-    case WeekdayDown
-    case WeekendUp
-    case WeekendDown;
+public enum TimetableStatus:String {
+    case WeekdayUp = "WeekdayUp"
+    case WeekdayDown = "WeekdayDown"
+    case WeekendUp = "WeekendUp"
+    case WeekendDown = "WeekendDown";
     
     func switchUpDown() -> TimetableStatus {
         switch self {
@@ -52,6 +52,14 @@ enum TimetableStatus {
             return true
         case .WeekdayDown, .WeekendDown:
             return false
+        }
+    }
+    
+    func upDownRiverseValue() -> String {
+        if !self.isUp() {
+            return "上り"
+        } else {
+            return "下り"
         }
     }
 }

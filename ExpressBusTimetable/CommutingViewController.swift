@@ -14,7 +14,7 @@ class CommutingViewController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var changeButton: UIBarButtonItem!
     var ctList = [CommutingTimetable]()
-    var timetableStatus = TimetableStatus.WeekdayUp
+    var timetableStatus = UserDefaults.timetableStatus
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,12 +22,11 @@ class CommutingViewController: UIViewController, UITableViewDataSource, UITableV
         tableView.delegate = self
         tableView.dataSource = self
         
-        // ex 平日 上り 杢師４丁目→東京駅八重洲口前
-        
-        let onBusStop = "杢師４丁目"
-        let offBusStop = "東京駅八重洲口前"
-        let weekdayUp = WeekdayUpTimetable.sharedInstance
-        ctList = weekdayUp.getCommutingTimetable(onBusStop, offBusStop)
+        // default 平日 上り 杢師４丁目->東京駅八重洲口前
+        let onBusStop = UserDefaults.onBusStop
+        let offBusStop = UserDefaults.offBusStop
+        ctList = timetableStatus.getTimetable().getCommutingTimetable(onBusStop, offBusStop)
+        self.navigationItem.title = onBusStop + "->" + offBusStop
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -45,20 +44,15 @@ class CommutingViewController: UIViewController, UITableViewDataSource, UITableV
         timetableStatus = timetableStatus.switchUpDown()
         let timetable = timetableStatus.getTimetable()
         
-        let onBusStop: String
-        let offBusStop: String
-        if timetableStatus.isUp() {
-            changeButton.title = "下り"
-            onBusStop = "杢師４丁目"
-            offBusStop = "東京駅八重洲口前"
-        } else {
-            changeButton.title = "上り"
-            onBusStop = "東京駅八重洲口前"
-            offBusStop = "杢師４丁目"
-        }
+        let onBusStop = UserDefaults.offBusStop
+        let offBusStop = UserDefaults.onBusStop
+        swap(&UserDefaults.onBusStop, &UserDefaults.offBusStop)
         
+        changeButton.title = timetableStatus.upDownRiverseValue()
         ctList = timetable.getCommutingTimetable(onBusStop, offBusStop)
         tableView.reloadData()
+        
+        self.navigationItem.title = onBusStop + "->" + offBusStop
     }
     
     override func didReceiveMemoryWarning() {
