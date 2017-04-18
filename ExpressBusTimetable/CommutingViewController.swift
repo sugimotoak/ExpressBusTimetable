@@ -25,6 +25,7 @@ class CommutingViewController: UIViewController, UITableViewDataSource, UITableV
         // default 平日 上り 杢師４丁目->東京駅八重洲口前
         let onBusStop = UserDefaults.onBusStop
         let offBusStop = UserDefaults.offBusStop
+        changeButton.title = timetableStatus.upDownRiverseValue()
         ctList = timetableStatus.getTimetable().getCommutingTimetable(onBusStop, offBusStop)
         navigationItem.title = onBusStop + "->" + offBusStop
     }
@@ -42,14 +43,13 @@ class CommutingViewController: UIViewController, UITableViewDataSource, UITableV
     
     @IBAction func selectChangeButton(_ sender: Any) {
         timetableStatus = timetableStatus.switchUpDown()
-        let timetable = timetableStatus.getTimetable()
         
         let onBusStop = UserDefaults.offBusStop
         let offBusStop = UserDefaults.onBusStop
         swap(&UserDefaults.onBusStop, &UserDefaults.offBusStop)
         
         changeButton.title = timetableStatus.upDownRiverseValue()
-        ctList = timetable.getCommutingTimetable(onBusStop, offBusStop)
+        ctList = timetableStatus.getTimetable().getCommutingTimetable(onBusStop, offBusStop)
         tableView.reloadData()
         
         navigationItem.title = onBusStop + "->" + offBusStop
