@@ -43,6 +43,15 @@ public enum TimetableStatus: String {
         }
     }
     
+    func today() -> TimetableStatus {
+        let calendar = NSCalendar(identifier: NSCalendar.Identifier.gregorian)!
+        if calendar.isDateInWeekend(Date()) {
+            return self.changeWeek(week: .End)
+        } else {
+            return self.changeWeek(week: .Day)
+        }
+    }
+    
     func switchUpDown() -> TimetableStatus {
         switch self {
         case .WeekdayUp:

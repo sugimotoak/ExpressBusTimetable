@@ -17,15 +17,7 @@ class CommutingViewController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var weekFormatSegmentedControl: UISegmentedControl!
     
     var ctList = [CommutingTimetable]()
-    lazy var timetableStatus: TimetableStatus = {
-        let calendar = NSCalendar(identifier: NSCalendar.Identifier.gregorian)!
-        var status = UserDefaults.timetableStatus
-        if calendar.isDateInWeekend(Date()) {
-            return status.changeWeek(week: TimetableStatus.Week.End)
-        } else {
-            return status.changeWeek(week: TimetableStatus.Week.Day)
-        }
-    }()
+    var timetableStatus: TimetableStatus = UserDefaults.timetableStatus.today()
     
     override func viewDidLoad() {
         super.viewDidLoad()
