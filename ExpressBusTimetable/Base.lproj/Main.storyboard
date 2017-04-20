@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3Aw-m1-Jji">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3Aw-m1-Jji">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--杢師４丁目ー東京駅八重洲口前-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="CommutingViewController" customModule="ExpressBusTimetable" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="CommutingViewController" customModule="ExpressBusTimetable" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -22,16 +23,80 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="avG-3y-FvB">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="110" width="375" height="557"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zFG-oo-Y7M" userLabel="segmentedControlBaseView">
+                                <rect key="frame" x="0.0" y="64" width="375" height="46"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nIa-FI-soe" userLabel="displayFormatSegmentedControlBaseView">
+                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="46"/>
+                                        <subviews>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Z0H-Y3-mla" userLabel="displayFormatSegmentedControl">
+                                                <rect key="frame" x="16" y="9" width="155.5" height="29"/>
+                                                <segments>
+                                                    <segment title="" image="list"/>
+                                                    <segment title="" image="table"/>
+                                                </segments>
+                                                <connections>
+                                                    <action selector="displayFormatSegmentedControlChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="cJN-xd-tjA"/>
+                                                </connections>
+                                            </segmentedControl>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="Z0H-Y3-mla" secondAttribute="trailing" constant="16" id="5j9-y6-P90"/>
+                                            <constraint firstItem="Z0H-Y3-mla" firstAttribute="centerX" secondItem="nIa-FI-soe" secondAttribute="centerX" id="icS-kv-bY7"/>
+                                            <constraint firstItem="Z0H-Y3-mla" firstAttribute="leading" secondItem="nIa-FI-soe" secondAttribute="leading" constant="16" id="tJq-I0-V2h"/>
+                                            <constraint firstItem="Z0H-Y3-mla" firstAttribute="centerY" secondItem="nIa-FI-soe" secondAttribute="centerY" id="uSa-bf-ysp"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pn8-yI-5IA" userLabel="weekFormatSegmentedControlBaseView">
+                                        <rect key="frame" x="187.5" y="0.0" width="187.5" height="46"/>
+                                        <subviews>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="OY1-J8-7iO" userLabel="weekFormatSegmentedControl">
+                                                <rect key="frame" x="16" y="9" width="155.5" height="29"/>
+                                                <segments>
+                                                    <segment title="平日"/>
+                                                    <segment title="休日"/>
+                                                </segments>
+                                                <connections>
+                                                    <action selector="weekFormatSegmentedControlChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="OpB-sV-dgG"/>
+                                                </connections>
+                                            </segmentedControl>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="OY1-J8-7iO" secondAttribute="trailing" constant="16" id="6gX-Dc-Tvw"/>
+                                            <constraint firstItem="OY1-J8-7iO" firstAttribute="centerX" secondItem="Pn8-yI-5IA" secondAttribute="centerX" id="dSv-uP-EVx"/>
+                                            <constraint firstItem="OY1-J8-7iO" firstAttribute="leading" secondItem="Pn8-yI-5IA" secondAttribute="leading" constant="16" id="nQM-29-JJA"/>
+                                            <constraint firstItem="OY1-J8-7iO" firstAttribute="centerY" secondItem="Pn8-yI-5IA" secondAttribute="centerY" id="rTJ-Pj-5Id"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Pn8-yI-5IA" secondAttribute="trailing" id="2F2-Ya-yer"/>
+                                    <constraint firstItem="nIa-FI-soe" firstAttribute="top" secondItem="zFG-oo-Y7M" secondAttribute="top" id="AAD-9H-0ro"/>
+                                    <constraint firstItem="nIa-FI-soe" firstAttribute="width" secondItem="zFG-oo-Y7M" secondAttribute="width" multiplier="0.5" id="GUO-4i-Et2"/>
+                                    <constraint firstItem="nIa-FI-soe" firstAttribute="leading" secondItem="zFG-oo-Y7M" secondAttribute="leading" id="aZX-oF-bNH"/>
+                                    <constraint firstAttribute="height" constant="46" id="dNi-vH-H0B"/>
+                                    <constraint firstAttribute="bottom" secondItem="Pn8-yI-5IA" secondAttribute="bottom" id="fEs-4y-yZp"/>
+                                    <constraint firstItem="Pn8-yI-5IA" firstAttribute="width" secondItem="zFG-oo-Y7M" secondAttribute="width" multiplier="0.5" id="lgI-Ch-IHP"/>
+                                    <constraint firstItem="Pn8-yI-5IA" firstAttribute="top" secondItem="zFG-oo-Y7M" secondAttribute="top" id="nwl-P1-JBx"/>
+                                    <constraint firstAttribute="bottom" secondItem="nIa-FI-soe" secondAttribute="bottom" id="xYH-VZ-2bA"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="zFG-oo-Y7M" secondAttribute="trailing" id="4z4-Bq-LXu"/>
+                            <constraint firstItem="zFG-oo-Y7M" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="FgL-jr-mHR"/>
+                            <constraint firstItem="avG-3y-FvB" firstAttribute="top" secondItem="zFG-oo-Y7M" secondAttribute="bottom" id="G15-7n-8OO"/>
                             <constraint firstAttribute="trailing" secondItem="avG-3y-FvB" secondAttribute="trailing" id="J9E-FW-fzf"/>
                             <constraint firstAttribute="bottom" secondItem="avG-3y-FvB" secondAttribute="bottom" id="PsX-NF-WvX"/>
-                            <constraint firstItem="avG-3y-FvB" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="l6B-9T-An1"/>
                             <constraint firstItem="avG-3y-FvB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="uTU-RF-1hL"/>
+                            <constraint firstItem="zFG-oo-Y7M" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="z8X-pn-mHZ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="杢師４丁目ー東京駅八重洲口前" id="RLy-e4-1HI">
@@ -43,7 +108,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="changeButton" destination="f0N-Fb-NYk" id="rJK-Dq-kRE"/>
+                        <outlet property="displayFormatSegmentedControl" destination="Z0H-Y3-mla" id="epe-ln-LEW"/>
                         <outlet property="tableView" destination="avG-3y-FvB" id="GQ8-KX-kOq"/>
+                        <outlet property="weekFormatSegmentedControl" destination="OY1-J8-7iO" id="6w6-ao-pnm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -128,4 +195,8 @@
             <point key="canvasLocation" x="1061.5999999999999" y="-267.61619190404798"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="list" width="12" height="12"/>
+        <image name="table" width="12" height="12"/>
+    </resources>
 </document>

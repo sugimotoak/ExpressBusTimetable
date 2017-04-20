@@ -13,8 +13,19 @@ class CommutingViewController: UIViewController, UITableViewDataSource, UITableV
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var changeButton: UIBarButtonItem!
+    @IBOutlet weak var displayFormatSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var weekFormatSegmentedControl: UISegmentedControl!
+    
     var ctList = [CommutingTimetable]()
-    var timetableStatus = UserDefaults.timetableStatus
+    lazy var timetableStatus: TimetableStatus = {
+        let calendar = NSCalendar(identifier: NSCalendar.Identifier.gregorian)!
+        var status = UserDefaults.timetableStatus
+        if calendar.isDateInWeekend(Date()) {
+            return status.changeWeek(week: TimetableStatus.Week.End)
+        } else {
+            return status.changeWeek(week: TimetableStatus.Week.Day)
+        }
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +33,6 @@ class CommutingViewController: UIViewController, UITableViewDataSource, UITableV
         tableView.delegate = self
         tableView.dataSource = self
         
-        // default 平日 上り 杢師４丁目->東京駅八重洲口前
         let onBusStop = UserDefaults.onBusStop
         let offBusStop = UserDefaults.offBusStop
         changeButton.title = timetableStatus.upDownRiverseValue()
@@ -53,6 +63,24 @@ class CommutingViewController: UIViewController, UITableViewDataSource, UITableV
         tableView.reloadData()
         
         navigationItem.title = onBusStop + "->" + offBusStop
+    }
+    
+    @IBAction func displayFormatSegmentedControlChange(_ sender: UISegmentedControl) {
+    }
+    
+    @IBAction func weekFormatSegmentedControlChange(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            timetableStatus = timetableStatus.changeWeek(week: TimetableStatus.Week.Day)
+            break
+        case 1:
+            timetableStatus = timetableStatus.changeWeek(week: TimetableStatus.Week.End)
+            break
+        default:
+            break
+        }
+        ctList = timetableStatus.getTimetable().getCommutingTimetable(UserDefaults.onBusStop, UserDefaults.offBusStop)
+        tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
