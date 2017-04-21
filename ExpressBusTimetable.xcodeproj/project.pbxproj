@@ -14,6 +14,7 @@
 		E9A912CD1E45D4A400122710 /* kimitsu_tokyo_weekday_up.csv in Resources */ = {isa = PBXBuildFile; fileRef = E9A912C91E45D4A400122710 /* kimitsu_tokyo_weekday_up.csv */; };
 		E9A912CE1E45D4A400122710 /* kimitsu_tokyo_weekend_down.csv in Resources */ = {isa = PBXBuildFile; fileRef = E9A912CA1E45D4A400122710 /* kimitsu_tokyo_weekend_down.csv */; };
 		E9A912CF1E45D4A400122710 /* kimitsu_tokyo_weekend_up.csv in Resources */ = {isa = PBXBuildFile; fileRef = E9A912CB1E45D4A400122710 /* kimitsu_tokyo_weekend_up.csv */; };
+		E9CA2B2A1EA9DA2100C40213 /* TimetableStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA2B291EA9DA2100C40213 /* TimetableStatus.swift */; };
 		E9CBD0D21EA4B58B00E5BBCE /* UserDefaults+AppSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBD0D11EA4B58B00E5BBCE /* UserDefaults+AppSpec.swift */; };
 		E9DF48D91E45C5C700406528 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DF48D81E45C5C700406528 /* AppDelegate.swift */; };
 		E9DF48DB1E45C5C700406528 /* CommutingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DF48DA1E45C5C700406528 /* CommutingViewController.swift */; };
@@ -32,6 +33,7 @@
 		E9A912C91E45D4A400122710 /* kimitsu_tokyo_weekday_up.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = kimitsu_tokyo_weekday_up.csv; sourceTree = "<group>"; };
 		E9A912CA1E45D4A400122710 /* kimitsu_tokyo_weekend_down.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = kimitsu_tokyo_weekend_down.csv; sourceTree = "<group>"; };
 		E9A912CB1E45D4A400122710 /* kimitsu_tokyo_weekend_up.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = kimitsu_tokyo_weekend_up.csv; sourceTree = "<group>"; };
+		E9CA2B291EA9DA2100C40213 /* TimetableStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimetableStatus.swift; sourceTree = "<group>"; };
 		E9CBD0D11EA4B58B00E5BBCE /* UserDefaults+AppSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+AppSpec.swift"; sourceTree = "<group>"; };
 		E9DF48D51E45C5C700406528 /* ExpressBusTimetable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpressBusTimetable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9DF48D81E45C5C700406528 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				E9A912C91E45D4A400122710 /* kimitsu_tokyo_weekday_up.csv */,
 				E9A912CA1E45D4A400122710 /* kimitsu_tokyo_weekend_down.csv */,
 				E9A912CB1E45D4A400122710 /* kimitsu_tokyo_weekend_up.csv */,
+				E9CA2B291EA9DA2100C40213 /* TimetableStatus.swift */,
 			);
 			path = timetable;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				E90FF1E01E4642E8004EF8A5 /* Timetable.swift in Sources */,
 				E90FF1DE1E463E2A004EF8A5 /* CommutingNavigationController.swift in Sources */,
 				E9DF48D91E45C5C700406528 /* AppDelegate.swift in Sources */,
+				E9CA2B2A1EA9DA2100C40213 /* TimetableStatus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

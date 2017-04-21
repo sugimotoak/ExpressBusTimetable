@@ -19,6 +19,16 @@ public extension UserDefaults {
     static let DEFAULT_OFFBUSSTOP = "東京駅八重洲口前"
     static let KEY_TIMETABLE_STATUS = "KEY_TIMETABLE_STATUS"
     static let DEFAULT_TIMETABLE_STATUS = TimetableStatus.WeekdayUp.rawValue
+    static let KEY_TABLEVIEW_TYPE = "KEY_TABLEVIEW_TYPE"
+    static let DEFAULT_TABLEVIEW_TYPE = "LIST"
+    
+    static func getValue(key: String, defaultValue: String) -> String {
+        if let value = standard.string(forKey: key) {
+            return value
+        } else {
+            return defaultValue
+        }
+    }
     
     static var onBusStop: String {
         get {
@@ -44,14 +54,6 @@ public extension UserDefaults {
         }
         set(value) {
             standard.set(value.rawValue, forKey: KEY_TIMETABLE_STATUS)
-        }
-    }
-    
-    static func getValue(key: String, defaultValue: String) -> String {
-        if let value = standard.string(forKey: key) {
-            return value
-        } else {
-            return defaultValue
         }
     }
 }
