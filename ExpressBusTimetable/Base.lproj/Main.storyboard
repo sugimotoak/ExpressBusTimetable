@@ -22,8 +22,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="avG-3y-FvB">
-                                <rect key="frame" x="0.0" y="110" width="375" height="557"/>
+                            <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="avK-B3-sni" userLabel="table">
+                                <rect key="frame" x="0.0" y="110" width="375" height="508"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="avG-3y-FvB" userLabel="list">
+                                <rect key="frame" x="0.0" y="110" width="375" height="508"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zFG-oo-Y7M" userLabel="segmentedControlBaseView">
@@ -90,11 +94,15 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="avK-B3-sni" firstAttribute="top" secondItem="zFG-oo-Y7M" secondAttribute="bottom" id="0rb-Nd-WLP"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="avG-3y-FvB" secondAttribute="bottom" id="4Jz-Sl-Hbu"/>
                             <constraint firstAttribute="trailing" secondItem="zFG-oo-Y7M" secondAttribute="trailing" id="4z4-Bq-LXu"/>
+                            <constraint firstAttribute="trailing" secondItem="avK-B3-sni" secondAttribute="trailing" id="DHX-vj-DR0"/>
                             <constraint firstItem="zFG-oo-Y7M" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="FgL-jr-mHR"/>
                             <constraint firstItem="avG-3y-FvB" firstAttribute="top" secondItem="zFG-oo-Y7M" secondAttribute="bottom" id="G15-7n-8OO"/>
                             <constraint firstAttribute="trailing" secondItem="avG-3y-FvB" secondAttribute="trailing" id="J9E-FW-fzf"/>
-                            <constraint firstAttribute="bottom" secondItem="avG-3y-FvB" secondAttribute="bottom" id="PsX-NF-WvX"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="avK-B3-sni" secondAttribute="bottom" id="aMz-dC-bdu"/>
+                            <constraint firstItem="avK-B3-sni" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="q16-bq-bGH"/>
                             <constraint firstItem="avG-3y-FvB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="uTU-RF-1hL"/>
                             <constraint firstItem="zFG-oo-Y7M" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="z8X-pn-mHZ"/>
                         </constraints>
@@ -109,7 +117,8 @@
                     <connections>
                         <outlet property="changeButton" destination="f0N-Fb-NYk" id="rJK-Dq-kRE"/>
                         <outlet property="displayFormatSegmentedControl" destination="Z0H-Y3-mla" id="epe-ln-LEW"/>
-                        <outlet property="tableView" destination="avG-3y-FvB" id="GQ8-KX-kOq"/>
+                        <outlet property="listTableView" destination="avG-3y-FvB" id="Sbd-nN-d7l"/>
+                        <outlet property="tableTableView" destination="avK-B3-sni" id="rsF-IM-pQE"/>
                         <outlet property="weekFormatSegmentedControl" destination="OY1-J8-7iO" id="6w6-ao-pnm"/>
                     </connections>
                 </viewController>

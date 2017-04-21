@@ -11,7 +11,8 @@ import UIKit
 
 class CommutingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var listTableView: UITableView!
+    @IBOutlet weak var tableTableView: UITableView!
     @IBOutlet weak var changeButton: UIBarButtonItem!
     @IBOutlet weak var displayFormatSegmentedControl: UISegmentedControl!
     @IBOutlet weak var weekFormatSegmentedControl: UISegmentedControl!
@@ -22,8 +23,12 @@ class CommutingViewController: UIViewController, UITableViewDataSource, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        tableView.delegate = self
-        tableView.dataSource = self
+        listTableView.delegate = self
+        listTableView.dataSource = self
+        tableTableView.delegate = self
+        tableTableView.dataSource = self
+        listTableView.isHidden = false
+        tableTableView.isHidden = true
         
         let onBusStop = UserDefaults.onBusStop
         let offBusStop = UserDefaults.offBusStop
@@ -33,14 +38,22 @@ class CommutingViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ctList.count
+        if tableView.tag == 0 {
+            return ctList.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "Cell")
-        
-        cell.textLabel?.text = "\(ctList[indexPath.row])"
-        return cell
+        if tableView.tag == 0 {
+            let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "Cell")
+            cell.textLabel?.text = "\(ctList[indexPath.row])"
+            return cell
+        } else {
+            let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "Cell")
+            return cell
+        }
     }
     
     @IBAction func selectChangeButton(_ sender: Any) {
@@ -52,12 +65,24 @@ class CommutingViewController: UIViewController, UITableViewDataSource, UITableV
         
         changeButton.title = timetableStatus.upDownRiverseValue()
         ctList = timetableStatus.getTimetable().getCommutingTimetable(onBusStop, offBusStop)
-        tableView.reloadData()
+        listTableView.reloadData()
         
         navigationItem.title = onBusStop + "->" + offBusStop
     }
     
     @IBAction func displayFormatSegmentedControlChange(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            listTableView.isHidden = false
+            tableTableView.isHidden = true
+            break
+        case 1:
+            tableTableView.isHidden = false
+            listTableView.isHidden = true
+            break
+        default:
+            break
+        }
     }
     
     @IBAction func weekFormatSegmentedControlChange(_ sender: UISegmentedControl) {
@@ -72,7 +97,7 @@ class CommutingViewController: UIViewController, UITableViewDataSource, UITableV
             break
         }
         ctList = timetableStatus.getTimetable().getCommutingTimetable(UserDefaults.onBusStop, UserDefaults.offBusStop)
-        tableView.reloadData()
+        listTableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
