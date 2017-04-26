@@ -15,7 +15,7 @@ public enum TimetableStatus: String {
     case WeekendDown
     
     enum UpDown {
-        case UP
+        case Up
         case Down
     }
     
@@ -73,7 +73,7 @@ public enum TimetableStatus: String {
     }
     
     func changeUpDown(upDown: UpDown) -> TimetableStatus {
-        if upDown == .UP {
+        if upDown == .Up {
             if !self.isUp() {
                 return self.switchUpDown()
             }
@@ -96,6 +96,10 @@ public enum TimetableStatus: String {
             }
         }
         return self
+    }
+    
+    func changeWeekDayUp() -> TimetableStatus {
+        return self.changeWeek(week: TimetableStatus.Week.Day).changeUpDown(upDown: TimetableStatus.UpDown.Up)
     }
     
     func isUp() -> Bool {

@@ -7,17 +7,18 @@
 //
 
 import UIKit
+import ActionSheetPicker_3_0
 
 class SettingsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,15 +43,85 @@ class SettingsTableViewController: UITableViewController {
         }
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath {
+        case IndexPath(row: 1, section: 0):
+            let label = tableView.cellForRow(at: indexPath)?.viewWithTag(1) as? UILabel
+            let timetableWeekDayUp = TimetableStatus.WeekdayUp.getTimetable()
+            let list = timetableWeekDayUp.busStopList
+            NSLog("\(list)")
+            let selection = list.index(of: UserDefaults.onBusStop) ?? 0
+            NSLog("\(selection),\(UserDefaults.onBusStop)")
+            let picker = ActionSheetStringPicker(title: "発停留所",
+                                                 rows: list,
+                                                 initialSelection: selection,
+                                                 doneBlock: {
+                                                     _, _, selectedValue in
+                                                     let value: String = selectedValue as! String
+                                                     label?.text = value
+                                                     UserDefaults.onBusStop = value
+                                                     if let upDown = timetableWeekDayUp.checkUpDown(value, UserDefaults.offBusStop) {
+                                                         UserDefaults.timetableStatus = UserDefaults.timetableStatus.changeUpDown(upDown: upDown)
+                                                     }
+                                                     tableView.deselectRow(at: indexPath, animated: true)
+                                                     return },
+                                                 cancel: { _ in
+                                                     tableView.deselectRow(at: indexPath, animated: true)
+                                                     return },
+                                                 origin: view)
+            picker?.show()
+            break
+        case IndexPath(row: 2, section: 0):
+            let label = tableView.cellForRow(at: indexPath)?.viewWithTag(1) as? UILabel
+            let timetableWeekDayUp = TimetableStatus.WeekdayUp.getTimetable()
+            let list = timetableWeekDayUp.busStopList
+            NSLog("\(list)")
+            let selection = list.index(of: UserDefaults.offBusStop) ?? 0
+            NSLog("\(selection),\(UserDefaults.offBusStop)")
+            let picker = ActionSheetStringPicker(title: "着停留所",
+                                                 rows: list,
+                                                 initialSelection: selection,
+                                                 doneBlock: {
+                                                     _, _, selectedValue in
+                                                     let value: String = selectedValue as! String
+                                                     label?.text = value
+                                                     UserDefaults.offBusStop = value
+                                                     if let upDown = timetableWeekDayUp.checkUpDown(UserDefaults.onBusStop, value) {
+                                                         UserDefaults.timetableStatus = UserDefaults.timetableStatus.changeUpDown(upDown: upDown)
+                                                     }
+                                                     tableView.deselectRow(at: indexPath, animated: true)
+                                                     return },
+                                                 cancel: { _ in
+                                                     tableView.deselectRow(at: indexPath, animated: true)
+                                                     return },
+                                                 origin: view)
+            picker?.show()
+            break
+        default:
+            break
+        }
+    }
 
-        // Configure the cell...
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
+
+        switch indexPath {
+        case IndexPath(item: 1, section: 0):
+            let onBusStop = UserDefaults.onBusStop
+            let onBusStopLabel = cell.viewWithTag(1) as? UILabel
+            onBusStopLabel?.text = onBusStop
+            break
+        case IndexPath(item: 2, section: 0):
+            let offBusStop = UserDefaults.offBusStop
+            let offBusStopLabel = cell.viewWithTag(1) as? UILabel
+            offBusStopLabel?.text = offBusStop
+            break
+        default:
+            break
+        }
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -68,7 +139,7 @@ class SettingsTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     */
 

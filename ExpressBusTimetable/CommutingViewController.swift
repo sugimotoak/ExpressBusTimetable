@@ -29,12 +29,17 @@ class CommutingViewController: UIViewController, UITableViewDataSource, UITableV
         tableTableView.dataSource = self
         listTableView.isHidden = false
         tableTableView.isHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         let onBusStop = UserDefaults.onBusStop
         let offBusStop = UserDefaults.offBusStop
         changeButton.title = timetableStatus.upDownRiverseValue()
         ctList = timetableStatus.getTimetable().getCommutingTimetable(onBusStop, offBusStop)
         navigationItem.title = onBusStop + "->" + offBusStop
+        listTableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

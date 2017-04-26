@@ -33,7 +33,7 @@ class Timetable {
     func loadTimetable(_ fileName: String) {
         let filePath = Bundle.main.path(forResource: fileName, ofType: "csv")!
         let stream = InputStream(fileAtPath: filePath)!
-        print("file : kimitsu_tokyo_weekday_up.csv")
+        print("file : \(fileName)")
         
         do {
             
@@ -117,6 +117,19 @@ class Timetable {
             }
         }
         return ctList
+    }
+    
+    func checkUpDown(_ onBusStop: String, _ offBusStop: String) -> TimetableStatus.UpDown? {
+        let onBusStopIndex = busStopList.index(of: onBusStop)
+        let offBusStopIndex = busStopList.index(of: offBusStop)
+        if onBusStopIndex == nil || offBusStopIndex == nil {
+            return nil
+        } else if onBusStopIndex! < offBusStopIndex! {
+            return TimetableStatus.UpDown.Up
+        } else if offBusStopIndex! < onBusStopIndex! {
+            return TimetableStatus.UpDown.Down
+        }
+        return nil
     }
 }
 
