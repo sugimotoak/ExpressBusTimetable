@@ -16,8 +16,17 @@ class Timetable {
         case OFF
     }
     
-    let none = "─"
+    let noneList = ["─","―"]
     let through = "↓"
+    
+    func isNone(_ string: String) -> Bool {
+        for none in noneList {
+            if string == none {
+                return true
+            }
+        }
+        return false
+    }
     
     var busStopList = [String]()
     var onBusStopList = [String]()
@@ -103,11 +112,11 @@ class Timetable {
         
         var ctList = [CommutingTimetable]()
         for row in timetable {
-            if row[onBusStopIndex] != none && row[offBusStopIndex] != none
+            if !isNone(row[onBusStopIndex]) && !isNone(row[offBusStopIndex])
                 && row[onBusStopIndex] != through && row[offBusStopIndex] != through {
                 var destinationBusStop: String = ""
                 for i in (0..<busStopList.count).reversed() {
-                    if row[i] != none {
+                    if !isNone(row[i]) {
                         destinationBusStop = busStopList[i]
                         break
                     }
