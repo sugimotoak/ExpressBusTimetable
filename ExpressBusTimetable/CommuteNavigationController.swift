@@ -1,5 +1,5 @@
 //
-//  CommutingNavigationController.swift
+//  CommuteNavigationController.swift
 //  ExpressBusTimetable
 //
 //  Created by akira on 2/5/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CommutingNavigationController: UINavigationController {
+class CommuteNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -1,5 +1,5 @@
 //
-//  CommutingViewController.swift
+//  CommuteViewController.swift
 //  ExpressBusTimetable
 //
 //  Created by akira on 2/4/17.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class CommutingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class CommuteViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var listTableView: UITableView!
     @IBOutlet weak var tableTableView: UITableView!
@@ -17,7 +17,7 @@ class CommutingViewController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var displayFormatSegmentedControl: UISegmentedControl!
     @IBOutlet weak var weekFormatSegmentedControl: UISegmentedControl!
     
-    var ctList = [CommutingTimetable]()
+    var ctList = [CommuteTimetable]()
     var timetableStatus: TimetableStatus = UserDefaults.timetableStatus.today()
     
     override func viewDidLoad() {
@@ -37,7 +37,7 @@ class CommutingViewController: UIViewController, UITableViewDataSource, UITableV
         let onBusStop = UserDefaults.onBusStop
         let offBusStop = UserDefaults.offBusStop
         changeButton.title = timetableStatus.upDownRiverseValue()
-        ctList = timetableStatus.getTimetable().getCommutingTimetable(onBusStop, offBusStop)
+        ctList = timetableStatus.getTimetable().getCommuteTimetable(onBusStop, offBusStop)
         navigationItem.title = onBusStop + "->" + offBusStop
         listTableView.reloadData()
     }
@@ -69,7 +69,7 @@ class CommutingViewController: UIViewController, UITableViewDataSource, UITableV
         swap(&UserDefaults.onBusStop, &UserDefaults.offBusStop)
         
         changeButton.title = timetableStatus.upDownRiverseValue()
-        ctList = timetableStatus.getTimetable().getCommutingTimetable(onBusStop, offBusStop)
+        ctList = timetableStatus.getTimetable().getCommuteTimetable(onBusStop, offBusStop)
         listTableView.reloadData()
         
         navigationItem.title = onBusStop + "->" + offBusStop
@@ -101,7 +101,7 @@ class CommutingViewController: UIViewController, UITableViewDataSource, UITableV
         default:
             break
         }
-        ctList = timetableStatus.getTimetable().getCommutingTimetable(UserDefaults.onBusStop, UserDefaults.offBusStop)
+        ctList = timetableStatus.getTimetable().getCommuteTimetable(UserDefaults.onBusStop, UserDefaults.offBusStop)
         listTableView.reloadData()
     }
     

@@ -96,7 +96,7 @@ class Timetable {
         
     }
     
-    func getCommutingTimetable(_ onBusStop: String, _ offBusStop: String) -> [CommutingTimetable] {
+    func getCommuteTimetable(_ onBusStop: String, _ offBusStop: String) -> [CommuteTimetable] {
         var onBusStopIndex: Int = 0
         var offBusStopIndex: Int = 0
         for (index, busStop) in busStopList.enumerated() {
@@ -110,7 +110,7 @@ class Timetable {
         print("\(onBusStopIndex):\(onBusStop)")
         print("\(offBusStopIndex):\(offBusStop)")
         
-        var ctList = [CommutingTimetable]()
+        var ctList = [CommuteTimetable]()
         for row in timetable {
             if !isNone(row[onBusStopIndex]) && !isNone(row[offBusStopIndex])
                 && row[onBusStopIndex] != through && row[offBusStopIndex] != through {
@@ -121,7 +121,7 @@ class Timetable {
                         break
                     }
                 }
-                let ct = CommutingTimetable(row[onBusStopIndex], row[offBusStopIndex], destinationBusStop)
+                let ct = CommuteTimetable(row[onBusStopIndex], row[offBusStopIndex], destinationBusStop)
                 ctList.append(ct)
             }
         }
@@ -170,7 +170,7 @@ class WeekendDownTimetable: Timetable {
     }
 }
 
-class CommutingTimetable: CustomStringConvertible {
+class CommuteTimetable: CustomStringConvertible {
     let onBusStopTime: String
     let offBusStopTime: String
     let destinationBusStop: String

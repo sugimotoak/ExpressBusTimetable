@@ -13,7 +13,7 @@
         <!--杢師４丁目ー東京駅八重洲口前-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="CommutingViewController" customModule="ExpressBusTimetable" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="CommuteViewController" customModule="ExpressBusTimetable" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -265,7 +265,7 @@
         <!--通勤時刻表-->
         <scene sceneID="Hkm-ou-6ff">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TLf-tc-HQC" customClass="CommutingNavigationController" customModule="ExpressBusTimetable" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TLf-tc-HQC" customClass="CommuteNavigationController" customModule="ExpressBusTimetable" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="通勤時刻表" image="timetable" id="5Ba-co-Uas"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="K5Z-xx-1DZ">
