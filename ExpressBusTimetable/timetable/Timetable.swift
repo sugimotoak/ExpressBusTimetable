@@ -16,7 +16,7 @@ class Timetable {
         case OFF
     }
     
-    let noneList = ["─","―"]
+    let noneList = ["─", "―"]
     let through = "↓"
     
     func isNone(_ string: String) -> Bool {
@@ -96,7 +96,7 @@ class Timetable {
         
     }
     
-    func getCommuteTimetable(_ onBusStop: String, _ offBusStop: String) -> [CommuteTimetable] {
+    func getCommuteTimetable(_ onBusStop: String, _ offBusStop: String) -> SectionizedCommuteTimetable {
         var onBusStopIndex: Int = 0
         var offBusStopIndex: Int = 0
         for (index, busStop) in busStopList.enumerated() {
@@ -125,7 +125,8 @@ class Timetable {
                 ctList.append(ct)
             }
         }
-        return ctList
+        
+        return SectionizedCommuteTimetable(ctList)
     }
     
     func checkUpDown(_ onBusStop: String, _ offBusStop: String) -> TimetableStatus.UpDown? {
@@ -170,16 +171,54 @@ class WeekendDownTimetable: Timetable {
     }
 }
 
+class SectionizedCommuteTimetable {
+    let commuteTimetableArray: [CommuteTimetable]
+    var sectionNames = [String]()
+    var sectionIndexes = [String]()
+    var array = [[CommuteTimetable]]()
+    
+    init(_ commuteTimetableArray: [CommuteTimetable]) {
+        self.commuteTimetableArray = commuteTimetableArray
+        
+        var preIndex = ""
+        for ct in commuteTimetableArray {
+            if let range = ct.onBusStopTime.range(of: "\\d{2}", options: .regularExpression, range: nil, locale: .current) {
+                let index = ct.onBusStopTime.substring(with: range)
+                if index != preIndex {
+                    sectionNames.append(index + ":00")
+                    sectionIndexes.append(index)
+                    array.append([ct])
+                } else {
+                    array[array.endIndex - 1].append(ct)
+                }
+                preIndex = index
+            }
+        }
+        
+    }
+}
+
 class CommuteTimetable: CustomStringConvertible {
     let onBusStopTime: String
     let offBusStopTime: String
     let destinationBusStop: String
+    var onBusStopMinute: String {
+        return offBusStopTime.substring(from: offBusStopTime.index(offBusStopTime.endIndex, offsetBy: -2))
+    }
     
     init(_ onBusStopTime: String, _ offBusStopTime: String, _ destinationBusStop: String) {
-        self.onBusStopTime = onBusStopTime
-        self.offBusStopTime = offBusStopTime
+        self.onBusStopTime = CommuteTimetable.formatTime(onBusStopTime)
+        self.offBusStopTime = CommuteTimetable.formatTime(offBusStopTime)
         self.destinationBusStop = destinationBusStop
     }
     
     var description: String { return "\(onBusStopTime) - \(offBusStopTime) \(destinationBusStop)行き" }
+    
+    static func formatTime(_ time: String) -> String {
+        let addZero = "0" + time
+        if let range = addZero.range(of: "\\d{2}:\\d{2}", options: .regularExpression, range: nil, locale: .current) {
+            return addZero.substring(with: range)
+        }
+        return time
+    }
 }
