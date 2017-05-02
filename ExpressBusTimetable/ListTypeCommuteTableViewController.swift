@@ -43,6 +43,7 @@ class ListTypeCommuteTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "listCell")
+        cell.textLabel?.font = UIFont.monospacedDigitSystemFont(ofSize: 17, weight: UIFontWeightRegular)
         cell.textLabel?.text = "\(sct.array[indexPath.section][indexPath.row])"
         return cell
     }
