@@ -11,24 +11,25 @@ import UIKit
 
 class CommuteViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet weak var listTableView: UITableView!
-    @IBOutlet weak var tableTableView: UITableView!
+    
+    @IBOutlet weak var listContainerView: UIView!
+    @IBOutlet weak var tableContainerView: UIView!
     @IBOutlet weak var changeButton: UIBarButtonItem!
     @IBOutlet weak var displayFormatSegmentedControl: UISegmentedControl!
     @IBOutlet weak var weekFormatSegmentedControl: UISegmentedControl!
+    
+    var listTypeVC:ListTypeCommuteTableViewController?
+    var tableTypeVC:TableTypeCommuteTableViewController?
     
     var sct = SectionizedCommuteTimetable([])
     var timetableStatus: TimetableStatus = UserDefaults.timetableStatus.today()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        listTableView.delegate = self
-        listTableView.dataSource = self
-        tableTableView.delegate = self
-        tableTableView.dataSource = self
-        listTableView.isHidden = false
-        tableTableView.isHidden = true
+        
+        // TODO: UserDefaultsを元に切り替える
+        listContainerView.isHidden = false
+        tableContainerView.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,8 +40,17 @@ class CommuteViewController: UIViewController, UITableViewDataSource, UITableVie
         changeButton.title = timetableStatus.upDownRiverseValue()
         sct = timetableStatus.getTimetable().getCommuteTimetable(onBusStop, offBusStop)
         navigationItem.title = onBusStop + "->" + offBusStop
-        listTableView.reloadData()
-        tableTableView.reloadData()
+        
+        listTypeVC?.sct = sct
+        tableTypeVC?.sct = sct
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ListType" {
+            listTypeVC = segue.destination as? ListTypeCommuteTableViewController
+        } else if segue.identifier == "TableType" {
+            tableTypeVC = segue.destination as? TableTypeCommuteTableViewController
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -88,8 +98,10 @@ class CommuteViewController: UIViewController, UITableViewDataSource, UITableVie
         
         changeButton.title = timetableStatus.upDownRiverseValue()
         sct = timetableStatus.getTimetable().getCommuteTimetable(onBusStop, offBusStop)
-        listTableView.reloadData()
-        tableTableView.reloadData()
+        
+        // TODO: 後で
+//        listTableView.reloadData()
+//        tableTableView.reloadData()
         
         navigationItem.title = onBusStop + "->" + offBusStop
     }
@@ -97,14 +109,12 @@ class CommuteViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBAction func displayFormatSegmentedControlChange(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            listTableView.isHidden = false
-            tableTableView.isHidden = true
-            listTableView.reloadData()
+            listContainerView.isHidden = false
+            tableContainerView.isHidden = true
             break
         case 1:
-            tableTableView.isHidden = false
-            listTableView.isHidden = true
-            tableTableView.reloadData()
+            tableContainerView.isHidden = false
+            listContainerView.isHidden = true
             break
         default:
             break
@@ -123,8 +133,9 @@ class CommuteViewController: UIViewController, UITableViewDataSource, UITableVie
             break
         }
         sct = timetableStatus.getTimetable().getCommuteTimetable(UserDefaults.onBusStop, UserDefaults.offBusStop)
-        listTableView.reloadData()
-        tableTableView.reloadData()
+        // TODO: 後で
+//        listTableView.reloadData()
+//        tableTableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
