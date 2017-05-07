@@ -24,6 +24,7 @@
 		E9DF48E31E45C5C700406528 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9DF48E11E45C5C700406528 /* LaunchScreen.storyboard */; };
 		E9E90A401EB5D5F3005432FC /* ListTypeCommuteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E90A3F1EB5D5F3005432FC /* ListTypeCommuteTableViewController.swift */; };
 		E9E90A421EB5D667005432FC /* TableTypeCommuteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E90A411EB5D667005432FC /* TableTypeCommuteTableViewController.swift */; };
+		E9FF968F1EBEC8A300A916B5 /* CommuteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FF968E1EBEC8A300A916B5 /* CommuteTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		E9DF48E41E45C5C700406528 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9E90A3F1EB5D5F3005432FC /* ListTypeCommuteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTypeCommuteTableViewController.swift; sourceTree = "<group>"; };
 		E9E90A411EB5D667005432FC /* TableTypeCommuteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableTypeCommuteTableViewController.swift; sourceTree = "<group>"; };
+		E9FF968E1EBEC8A300A916B5 /* CommuteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommuteTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				E90FF1DD1E463E2A004EF8A5 /* CommuteNavigationController.swift */,
 				E9E90A3F1EB5D5F3005432FC /* ListTypeCommuteTableViewController.swift */,
 				E9E90A411EB5D667005432FC /* TableTypeCommuteTableViewController.swift */,
+				E9FF968E1EBEC8A300A916B5 /* CommuteTableViewController.swift */,
 				E9DF48DF1E45C5C700406528 /* Assets.xcassets */,
 				E9DF48E11E45C5C700406528 /* LaunchScreen.storyboard */,
 				E9DF48E41E45C5C700406528 /* Info.plist */,
@@ -263,6 +266,7 @@
 				E9E90A401EB5D5F3005432FC /* ListTypeCommuteTableViewController.swift in Sources */,
 				E90FF1E01E4642E8004EF8A5 /* Timetable.swift in Sources */,
 				E90FF1DE1E463E2A004EF8A5 /* CommuteNavigationController.swift in Sources */,
+				E9FF968F1EBEC8A300A916B5 /* CommuteTableViewController.swift in Sources */,
 				E9DF48D91E45C5C700406528 /* AppDelegate.swift in Sources */,
 				E9CA2B2A1EA9DA2100C40213 /* TimetableStatus.swift in Sources */,
 				E9CA2B2E1EAB268500C40213 /* SettingsTableViewController.swift in Sources */,
