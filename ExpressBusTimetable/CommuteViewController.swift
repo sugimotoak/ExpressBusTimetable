@@ -30,6 +30,8 @@ class CommuteViewController: UIViewController {
         tableContainerView.isHidden = true
         
         weekFormatSegmentedControl.selectedSegmentIndex = timetableStatus.isWeekend() ? 1 : 0
+        changeButton.title = timetableStatus.upDownRiverseValue()
+        UserDefaults.timetableStatus = timetableStatus
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,6 +72,7 @@ class CommuteViewController: UIViewController {
     
     @IBAction func selectChangeButton(_ sender: Any) {
         timetableStatus = timetableStatus.switchUpDown()
+        UserDefaults.timetableStatus = timetableStatus
         
         swap(&UserDefaults.onBusStop, &UserDefaults.offBusStop)
         let onBusStop = UserDefaults.onBusStop
@@ -109,6 +112,7 @@ class CommuteViewController: UIViewController {
         default:
             break
         }
+        UserDefaults.timetableStatus = timetableStatus
         let sct = timetableStatus.getTimetable().getCommuteTimetable(UserDefaults.onBusStop, UserDefaults.offBusStop)
         setSCT(sct)
         getShowingVC()?.tableView.reloadData()

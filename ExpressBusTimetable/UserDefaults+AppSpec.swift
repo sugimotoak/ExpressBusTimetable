@@ -36,6 +36,7 @@ public extension UserDefaults {
         }
         set(value) {
             standard.set(value, forKey: KEY_ONBUSSTOP)
+            standard.synchronize()
         }
     }
     
@@ -45,6 +46,7 @@ public extension UserDefaults {
         }
         set(value) {
             standard.set(value, forKey: KEY_OFFBUSSTOP)
+            standard.synchronize()
         }
     }
     
@@ -54,6 +56,7 @@ public extension UserDefaults {
         }
         set(value) {
             standard.set(value.rawValue, forKey: KEY_TIMETABLE_STATUS)
+            standard.synchronize()
         }
     }
 }
