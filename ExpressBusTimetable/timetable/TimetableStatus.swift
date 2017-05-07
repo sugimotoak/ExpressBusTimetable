@@ -24,6 +24,11 @@ public enum TimetableStatus: String {
         case End
     }
     
+    public enum DisplayType: String {
+        case LIST
+        case TABLE
+    }
+    
     func getTimetable() -> Timetable {
         switch self {
         case .WeekdayUp:

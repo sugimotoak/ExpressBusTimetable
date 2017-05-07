@@ -59,4 +59,14 @@ public extension UserDefaults {
             standard.synchronize()
         }
     }
+    
+    static var tableViewDisplayType:TimetableStatus.DisplayType {
+        get {
+            return TimetableStatus.DisplayType(rawValue: getValue(key: KEY_TABLEVIEW_TYPE, defaultValue: DEFAULT_TABLEVIEW_TYPE))!
+        }
+        set(value) {
+            standard.set(value.rawValue, forKey: KEY_TABLEVIEW_TYPE)
+            standard.synchronize()
+        }
+    }
 }

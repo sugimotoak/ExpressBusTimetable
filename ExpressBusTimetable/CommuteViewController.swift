@@ -25,10 +25,16 @@ class CommuteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // TODO: UserDefaultsを元に切り替える
-        listContainerView.isHidden = false
-        tableContainerView.isHidden = true
-        
+        let displayType = UserDefaults.tableViewDisplayType
+        if displayType == .LIST {
+            listContainerView.isHidden = false
+            tableContainerView.isHidden = true
+            displayFormatSegmentedControl.selectedSegmentIndex = 0
+        } else {
+            listContainerView.isHidden = true
+            tableContainerView.isHidden = false
+            displayFormatSegmentedControl.selectedSegmentIndex = 1
+        }
         weekFormatSegmentedControl.selectedSegmentIndex = timetableStatus.isWeekend() ? 1 : 0
         changeButton.title = timetableStatus.upDownRiverseValue()
         UserDefaults.timetableStatus = timetableStatus
@@ -86,15 +92,17 @@ class CommuteViewController: UIViewController {
         navigationItem.title = onBusStop + "->" + offBusStop
     }
     
-    @IBAction func displayFormatSegmentedControlChange(_ sender: UISegmentedControl) {
+    @IBAction func displayTypeSegmentedControlChange(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
             listContainerView.isHidden = false
             tableContainerView.isHidden = true
+            UserDefaults.tableViewDisplayType = .LIST
             break
         case 1:
             tableContainerView.isHidden = false
             listContainerView.isHidden = true
+            UserDefaults.tableViewDisplayType = .TABLE
             break
         default:
             break
