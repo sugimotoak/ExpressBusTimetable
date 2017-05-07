@@ -388,7 +388,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 361BF0182998719B86C3329E /* Pods-ExpressBusTimetable.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7CD52XE763;
 				INFOPLIST_FILE = ExpressBusTimetable/Info.plist;
@@ -404,7 +403,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4A177AFB988C492F12930528 /* Pods-ExpressBusTimetable.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7CD52XE763;
 				INFOPLIST_FILE = ExpressBusTimetable/Info.plist;
