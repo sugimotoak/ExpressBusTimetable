@@ -32,12 +32,12 @@
 		4A177AFB988C492F12930528 /* Pods-ExpressBusTimetable.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExpressBusTimetable.release.xcconfig"; path = "Pods/Target Support Files/Pods-ExpressBusTimetable/Pods-ExpressBusTimetable.release.xcconfig"; sourceTree = "<group>"; };
 		B61F582050662717F805E7AA /* Pods_ExpressBusTimetable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExpressBusTimetable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E90FF1DD1E463E2A004EF8A5 /* CommuteNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommuteNavigationController.swift; sourceTree = "<group>"; };
-		E90FF1DF1E4642E8004EF8A5 /* Timetable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timetable.swift; sourceTree = "<group>"; };
+		E90FF1DF1E4642E8004EF8A5 /* Timetable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Timetable.swift; path = Timetable.swift; sourceTree = "<group>"; };
 		E9A912C81E45D4A400122710 /* kimitsu_tokyo_weekday_down.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = kimitsu_tokyo_weekday_down.csv; sourceTree = "<group>"; };
 		E9A912C91E45D4A400122710 /* kimitsu_tokyo_weekday_up.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = kimitsu_tokyo_weekday_up.csv; sourceTree = "<group>"; };
 		E9A912CA1E45D4A400122710 /* kimitsu_tokyo_weekend_down.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = kimitsu_tokyo_weekend_down.csv; sourceTree = "<group>"; };
 		E9A912CB1E45D4A400122710 /* kimitsu_tokyo_weekend_up.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = kimitsu_tokyo_weekend_up.csv; sourceTree = "<group>"; };
-		E9CA2B291EA9DA2100C40213 /* TimetableStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimetableStatus.swift; sourceTree = "<group>"; };
+		E9CA2B291EA9DA2100C40213 /* TimetableStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimetableStatus.swift; path = TimetableStatus.swift; sourceTree = "<group>"; };
 		E9CA2B2D1EAB268500C40213 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		E9CBD0D11EA4B58B00E5BBCE /* UserDefaults+AppSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+AppSpec.swift"; sourceTree = "<group>"; };
 		E9DF48D51E45C5C700406528 /* ExpressBusTimetable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpressBusTimetable.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,26 +72,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E9A912C71E45D4A400122710 /* timetable */ = {
+		E9A912C71E45D4A400122710 /* Timetable */ = {
 			isa = PBXGroup;
 			children = (
 				E9A912C81E45D4A400122710 /* kimitsu_tokyo_weekday_down.csv */,
 				E9A912C91E45D4A400122710 /* kimitsu_tokyo_weekday_up.csv */,
 				E9A912CA1E45D4A400122710 /* kimitsu_tokyo_weekend_down.csv */,
 				E9A912CB1E45D4A400122710 /* kimitsu_tokyo_weekend_up.csv */,
-				E90FF1DF1E4642E8004EF8A5 /* Timetable.swift */,
-				E9CA2B291EA9DA2100C40213 /* TimetableStatus.swift */,
 			);
-			path = timetable;
+			name = Timetable;
+			path = Timetable;
 			sourceTree = "<group>";
 		};
 		E9DF48CC1E45C5C600406528 = {
 			isa = PBXGroup;
 			children = (
 				E9DF48D71E45C5C700406528 /* ExpressBusTimetable */,
-				E9DF48D61E45C5C700406528 /* Products */,
-				F0ADD9697898971A6B7C72C2 /* Pods */,
 				793CFECCC81F668187939BB3 /* Frameworks */,
+				F0ADD9697898971A6B7C72C2 /* Pods */,
+				E9DF48D61E45C5C700406528 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,21 +105,59 @@
 		E9DF48D71E45C5C700406528 /* ExpressBusTimetable */ = {
 			isa = PBXGroup;
 			children = (
-				E9A912C71E45D4A400122710 /* timetable */,
+				E9FF96931EC09A2900A916B5 /* Controllers */,
+				E9FF96911EC0987700A916B5 /* Models */,
+				E9FF96901EC0983500A916B5 /* Resources */,
+				E9A912C71E45D4A400122710 /* Timetable */,
+				E9FF96921EC09A2100A916B5 /* Views */,
 				E9DF48D81E45C5C700406528 /* AppDelegate.swift */,
-				E9DF48DA1E45C5C700406528 /* CommuteViewController.swift */,
-				E9CBD0D11EA4B58B00E5BBCE /* UserDefaults+AppSpec.swift */,
-				E9DF48DC1E45C5C700406528 /* Main.storyboard */,
-				E9CA2B2D1EAB268500C40213 /* SettingsTableViewController.swift */,
-				E90FF1DD1E463E2A004EF8A5 /* CommuteNavigationController.swift */,
-				E9E90A3F1EB5D5F3005432FC /* ListTypeCommuteTableViewController.swift */,
-				E9E90A411EB5D667005432FC /* TableTypeCommuteTableViewController.swift */,
-				E9FF968E1EBEC8A300A916B5 /* CommuteTableViewController.swift */,
-				E9DF48DF1E45C5C700406528 /* Assets.xcassets */,
-				E9DF48E11E45C5C700406528 /* LaunchScreen.storyboard */,
-				E9DF48E41E45C5C700406528 /* Info.plist */,
 			);
 			path = ExpressBusTimetable;
+			sourceTree = "<group>";
+		};
+		E9FF96901EC0983500A916B5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E9DF48DF1E45C5C700406528 /* Assets.xcassets */,
+				E9DF48E41E45C5C700406528 /* Info.plist */,
+			);
+			name = Resources;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E9FF96911EC0987700A916B5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E90FF1DF1E4642E8004EF8A5 /* Timetable.swift */,
+				E9CA2B291EA9DA2100C40213 /* TimetableStatus.swift */,
+				E9CBD0D11EA4B58B00E5BBCE /* UserDefaults+AppSpec.swift */,
+			);
+			name = Models;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E9FF96921EC09A2100A916B5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E9DF48E11E45C5C700406528 /* LaunchScreen.storyboard */,
+				E9DF48DC1E45C5C700406528 /* Main.storyboard */,
+			);
+			name = Views;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E9FF96931EC09A2900A916B5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E90FF1DD1E463E2A004EF8A5 /* CommuteNavigationController.swift */,
+				E9FF968E1EBEC8A300A916B5 /* CommuteTableViewController.swift */,
+				E9DF48DA1E45C5C700406528 /* CommuteViewController.swift */,
+				E9E90A3F1EB5D5F3005432FC /* ListTypeCommuteTableViewController.swift */,
+				E9CA2B2D1EAB268500C40213 /* SettingsTableViewController.swift */,
+				E9E90A411EB5D667005432FC /* TableTypeCommuteTableViewController.swift */,
+			);
+			name = Controllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		F0ADD9697898971A6B7C72C2 /* Pods */ = {
@@ -282,6 +319,7 @@
 				E9DF48DD1E45C5C700406528 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		E9DF48E11E45C5C700406528 /* LaunchScreen.storyboard */ = {
@@ -290,6 +328,7 @@
 				E9DF48E21E45C5C700406528 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -394,7 +433,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7CD52XE763;
-				INFOPLIST_FILE = ExpressBusTimetable/Info.plist;
+				INFOPLIST_FILE = ExpressBusTimetable/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.spreadcontent.ExpressBusTimetable;
@@ -409,7 +448,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7CD52XE763;
-				INFOPLIST_FILE = ExpressBusTimetable/Info.plist;
+				INFOPLIST_FILE = ExpressBusTimetable/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.spreadcontent.ExpressBusTimetable;
