@@ -63,10 +63,12 @@ class SettingsTableViewController: UITableViewController {
                                                  doneBlock: {
                                                      _, _, selectedValue in
                                                      let value: String = selectedValue as! String
-                                                     label?.text = value
-                                                     UserDefaults.onBusStop = value
-                                                     if let upDown = timetableWeekDayUp.checkUpDown(value, UserDefaults.offBusStop) {
-                                                         UserDefaults.timetableStatus = UserDefaults.timetableStatus.changeUpDown(upDown: upDown)
+                                                     if !value.isEmpty {
+                                                         label?.text = value
+                                                         UserDefaults.onBusStop = value
+                                                         if let upDown = timetableWeekDayUp.checkUpDown(value, UserDefaults.offBusStop) {
+                                                             UserDefaults.timetableStatus = UserDefaults.timetableStatus.changeUpDown(upDown: upDown)
+                                                         }
                                                      }
                                                      tableView.deselectRow(at: indexPath, animated: true)
                                                      return },
@@ -90,10 +92,12 @@ class SettingsTableViewController: UITableViewController {
                                                  doneBlock: {
                                                      _, _, selectedValue in
                                                      let value: String = selectedValue as! String
-                                                     label?.text = value
-                                                     UserDefaults.offBusStop = value
-                                                     if let upDown = timetableWeekDayUp.checkUpDown(UserDefaults.onBusStop, value) {
-                                                         UserDefaults.timetableStatus = UserDefaults.timetableStatus.changeUpDown(upDown: upDown)
+                                                     if !value.isEmpty {
+                                                         label?.text = value
+                                                         UserDefaults.offBusStop = value
+                                                         if let upDown = timetableWeekDayUp.checkUpDown(UserDefaults.onBusStop, value) {
+                                                             UserDefaults.timetableStatus = UserDefaults.timetableStatus.changeUpDown(upDown: upDown)
+                                                         }
                                                      }
                                                      tableView.deselectRow(at: indexPath, animated: true)
                                                      return },
@@ -104,13 +108,13 @@ class SettingsTableViewController: UITableViewController {
             picker?.show()
             break
         case IndexPath(row: 0, section: 1):
-            let alert: UIAlertController = UIAlertController(title: "リセットしますか？", message: nil, preferredStyle:  UIAlertControllerStyle.actionSheet)
-            let defaultAction: UIAlertAction = UIAlertAction(title: "リセットする", style: UIAlertActionStyle.destructive, handler:{
-                (action: UIAlertAction!) -> Void in
+            let alert: UIAlertController = UIAlertController(title: "リセットしますか？", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+            let defaultAction: UIAlertAction = UIAlertAction(title: "リセットする", style: UIAlertActionStyle.destructive, handler: {
+                (_: UIAlertAction!) -> Void in
                 UserDefaults.reset()
                 tableView.reloadData()
             })
-            let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertActionStyle.cancel, handler:nil)
+            let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertActionStyle.cancel, handler: nil)
             alert.addAction(cancelAction)
             alert.addAction(defaultAction)
             present(alert, animated: true, completion: nil)
