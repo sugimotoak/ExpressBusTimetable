@@ -28,11 +28,14 @@ class SettingsTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
+    /*
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
+    */
 
+    /*
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         switch section {
@@ -42,17 +45,19 @@ class SettingsTableViewController: UITableViewController {
             return 0
         }
     }
+    */
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath {
         case IndexPath(row: 1, section: 0):
+            let title = (tableView.cellForRow(at: indexPath)?.viewWithTag(2) as? UILabel)?.text
             let label = tableView.cellForRow(at: indexPath)?.viewWithTag(1) as? UILabel
             let timetableWeekDayUp = TimetableStatus.WeekdayUp.getTimetable()
             let list = timetableWeekDayUp.busStopList
             NSLog("\(list)")
             let selection = list.index(of: UserDefaults.onBusStop) ?? 0
             NSLog("\(selection),\(UserDefaults.onBusStop)")
-            let picker = ActionSheetStringPicker(title: "発停留所",
+            let picker = ActionSheetStringPicker(title: title,
                                                  rows: list,
                                                  initialSelection: selection,
                                                  doneBlock: {
@@ -72,13 +77,14 @@ class SettingsTableViewController: UITableViewController {
             picker?.show()
             break
         case IndexPath(row: 2, section: 0):
+            let title = (tableView.cellForRow(at: indexPath)?.viewWithTag(2) as? UILabel)?.text
             let label = tableView.cellForRow(at: indexPath)?.viewWithTag(1) as? UILabel
             let timetableWeekDayUp = TimetableStatus.WeekdayUp.getTimetable()
             let list = timetableWeekDayUp.busStopList
             NSLog("\(list)")
             let selection = list.index(of: UserDefaults.offBusStop) ?? 0
             NSLog("\(selection),\(UserDefaults.offBusStop)")
-            let picker = ActionSheetStringPicker(title: "着停留所",
+            let picker = ActionSheetStringPicker(title: title,
                                                  rows: list,
                                                  initialSelection: selection,
                                                  doneBlock: {
