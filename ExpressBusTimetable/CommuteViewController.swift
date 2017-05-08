@@ -43,6 +43,7 @@ class CommuteViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        timetableStatus = UserDefaults.timetableStatus
         let onBusStop = UserDefaults.onBusStop
         let offBusStop = UserDefaults.offBusStop
         changeButton.title = timetableStatus.upDownRiverseValue()
