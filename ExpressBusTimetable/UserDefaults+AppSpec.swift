@@ -69,4 +69,11 @@ public extension UserDefaults {
             standard.synchronize()
         }
     }
+    
+    static func reset() {
+        standard.removeObject(forKey: KEY_ONBUSSTOP)
+        standard.removeObject(forKey: KEY_OFFBUSSTOP)
+        standard.removeObject(forKey: KEY_TIMETABLE_STATUS)
+        standard.removeObject(forKey: KEY_TABLEVIEW_TYPE)
+    }
 }

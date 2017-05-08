@@ -103,6 +103,18 @@ class SettingsTableViewController: UITableViewController {
                                                  origin: view)
             picker?.show()
             break
+        case IndexPath(row: 0, section: 1):
+            let alert: UIAlertController = UIAlertController(title: "リセットしますか？", message: nil, preferredStyle:  UIAlertControllerStyle.actionSheet)
+            let defaultAction: UIAlertAction = UIAlertAction(title: "リセットする", style: UIAlertActionStyle.destructive, handler:{
+                (action: UIAlertAction!) -> Void in
+                UserDefaults.reset()
+                tableView.reloadData()
+            })
+            let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertActionStyle.cancel, handler:nil)
+            alert.addAction(cancelAction)
+            alert.addAction(defaultAction)
+            present(alert, animated: true, completion: nil)
+            break
         default:
             break
         }
