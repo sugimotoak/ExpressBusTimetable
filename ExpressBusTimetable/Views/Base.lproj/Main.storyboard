@@ -83,30 +83,43 @@
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w0x-VI-cyH" userLabel="List Container View">
-                                <rect key="frame" x="0.0" y="110" width="375" height="508"/>
+                                <rect key="frame" x="0.0" y="110" width="375" height="458"/>
                                 <connections>
                                     <segue destination="WUc-Yh-9ah" kind="embed" identifier="ListType" id="OW5-Bu-I3D"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="te8-or-NXa" userLabel="Table Container View">
-                                <rect key="frame" x="0.0" y="110" width="375" height="508"/>
+                                <rect key="frame" x="0.0" y="110" width="375" height="458"/>
                                 <connections>
                                     <segue destination="AYQ-9m-TXG" kind="embed" identifier="TableType" id="6JE-bk-mvT"/>
                                 </connections>
                             </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NOi-ry-zku" userLabel="Banner View" customClass="GADBannerView">
+                                <rect key="frame" x="0.0" y="568" width="375" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="IPP-xY-fD1"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoloadEnabled" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="w0x-VI-cyH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2x0-4r-eap"/>
                             <constraint firstAttribute="trailing" secondItem="zFG-oo-Y7M" secondAttribute="trailing" id="4z4-Bq-LXu"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="w0x-VI-cyH" secondAttribute="bottom" id="CCp-aj-uk0"/>
+                            <constraint firstItem="NOi-ry-zku" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="6Ni-I7-33h"/>
                             <constraint firstItem="zFG-oo-Y7M" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="FgL-jr-mHR"/>
+                            <constraint firstItem="NOi-ry-zku" firstAttribute="top" secondItem="te8-or-NXa" secondAttribute="bottom" id="IOf-lw-aST"/>
                             <constraint firstAttribute="trailing" secondItem="te8-or-NXa" secondAttribute="trailing" id="MKq-aa-QmA"/>
                             <constraint firstItem="w0x-VI-cyH" firstAttribute="top" secondItem="zFG-oo-Y7M" secondAttribute="bottom" id="My7-Js-6ws"/>
+                            <constraint firstAttribute="trailing" secondItem="NOi-ry-zku" secondAttribute="trailing" id="TtS-Lc-VFf"/>
+                            <constraint firstItem="NOi-ry-zku" firstAttribute="top" secondItem="w0x-VI-cyH" secondAttribute="bottom" id="aOg-lg-GBF"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="NOi-ry-zku" secondAttribute="bottom" id="eYo-5N-1p6"/>
                             <constraint firstItem="te8-or-NXa" firstAttribute="top" secondItem="zFG-oo-Y7M" secondAttribute="bottom" id="gaM-uL-YGa"/>
                             <constraint firstAttribute="trailing" secondItem="w0x-VI-cyH" secondAttribute="trailing" id="swx-iz-4mo"/>
                             <constraint firstItem="te8-or-NXa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="y3P-2l-GiY"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="te8-or-NXa" secondAttribute="bottom" id="yJQ-z5-yqz"/>
                             <constraint firstItem="zFG-oo-Y7M" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="z8X-pn-mHZ"/>
                         </constraints>
                     </view>
@@ -118,6 +131,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="bannerView" destination="NOi-ry-zku" id="6JS-Q7-IIH"/>
+                        <outlet property="bannerViewHeight" destination="IPP-xY-fD1" id="2uL-Bb-Yia"/>
                         <outlet property="changeButton" destination="f0N-Fb-NYk" id="rJK-Dq-kRE"/>
                         <outlet property="displayFormatSegmentedControl" destination="Z0H-Y3-mla" id="epe-ln-LEW"/>
                         <outlet property="listContainerView" destination="w0x-VI-cyH" id="bR2-NO-9Ea"/>
@@ -153,7 +168,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="ListTypeCommuteTableViewController" id="WUc-Yh-9ah" customClass="ListTypeCommuteTableViewController" customModule="ExpressBusTimetable" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Omb-PR-zmQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="508"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="458"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -181,7 +196,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="TableTypeCommuteTableViewController" id="AYQ-9m-TXG" customClass="TableTypeCommuteTableViewController" customModule="ExpressBusTimetable" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="JAF-Sw-OUQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="508"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="458"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>

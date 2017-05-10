@@ -8,14 +8,17 @@
 
 import Foundation
 import UIKit
+import GoogleMobileAds
 
-class CommuteViewController: UIViewController {
+class CommuteViewController: UIViewController, GADBannerViewDelegate {
     
     @IBOutlet weak var listContainerView: UIView!
     @IBOutlet weak var tableContainerView: UIView!
     @IBOutlet weak var changeButton: UIBarButtonItem!
     @IBOutlet weak var displayFormatSegmentedControl: UISegmentedControl!
     @IBOutlet weak var weekFormatSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var bannerView: GADBannerView!
+    @IBOutlet weak var bannerViewHeight: NSLayoutConstraint!
     
     var listTypeVC: ListTypeCommuteTableViewController?
     var tableTypeVC: TableTypeCommuteTableViewController?
@@ -38,6 +41,12 @@ class CommuteViewController: UIViewController {
         weekFormatSegmentedControl.selectedSegmentIndex = timetableStatus.isWeekend() ? 1 : 0
         changeButton.title = timetableStatus.upDownRiverseValue()
         UserDefaults.timetableStatus = timetableStatus
+        
+        bannerView.adUnitID = "ca-app-pub-4629563331084064/4076897235"
+        bannerView.rootViewController = self
+        bannerView.delegate = self
+        bannerViewHeight.constant = 50
+        bannerView.load(AdMobManager.getRequest())
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,7 +59,6 @@ class CommuteViewController: UIViewController {
         let sct = timetableStatus.getTimetable().getCommuteTimetable(onBusStop, offBusStop)
         setSCT(sct)
         getShowingVC()?.tableView.reloadData()
-        
         navigationItem.title = onBusStop + "->" + offBusStop
     }
     
@@ -130,6 +138,12 @@ class CommuteViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - GADBannerViewDelegate
+    
+    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+        bannerViewHeight.constant = 0
     }
     
 }

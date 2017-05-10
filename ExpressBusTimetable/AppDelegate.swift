@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
+        // Use Firebase library to configure APIs
+        FIRApp.configure()
+        GADMobileAds.configure(withApplicationID: "ca-app-pub-4629563331084064~1123430830")
+
         return true
     }
 
