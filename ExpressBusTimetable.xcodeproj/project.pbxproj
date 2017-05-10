@@ -191,6 +191,7 @@
 				E9DF48D31E45C5C600406528 /* Resources */,
 				6BD40E6D1D03F27E461C4898 /* [CP] Embed Pods Frameworks */,
 				D31BB289FD66EC2675453132 /* [CP] Copy Pods Resources */,
+				E98720461EC34AA800317115 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -299,6 +300,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ExpressBusTimetable/Pods-ExpressBusTimetable-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		E98720461EC34AA800317115 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Replace this with the GOOGLE_APP_ID from your GoogleService-Info.plist file\nGOOGLE_APP_ID=1:997484902962:ios:125b0fcc586c7fce\n\n# Replace the /Path/To/ServiceAccount.json with the path to the key you just downloaded\n\"${PODS_ROOT}\"/FirebaseCrash/upload-sym \"expressbustimetable-firebase-crashreporting-3ne3d-01949547b1.json\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 

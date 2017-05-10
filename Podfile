@@ -10,5 +10,6 @@ target 'ExpressBusTimetable' do
   pod 'ActionSheetPicker-3.0'
   pod 'Firebase/Core'
   pod 'Firebase/AdMob'
+  pod 'Firebase/Crash'
 
 end
