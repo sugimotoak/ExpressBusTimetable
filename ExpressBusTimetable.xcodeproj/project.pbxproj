@@ -10,6 +10,8 @@
 		53C8C7ED2AE224F6FFF25AAA /* Pods_ExpressBusTimetable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B61F582050662717F805E7AA /* Pods_ExpressBusTimetable.framework */; };
 		E90FF1DE1E463E2A004EF8A5 /* CommuteNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90FF1DD1E463E2A004EF8A5 /* CommuteNavigationController.swift */; };
 		E90FF1E01E4642E8004EF8A5 /* Timetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90FF1DF1E4642E8004EF8A5 /* Timetable.swift */; };
+		E94B9BDE1EC425D400C51318 /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E94B9BDD1EC425D400C51318 /* XCGLogger.framework */; };
+		E94B9BE01EC425DD00C51318 /* ObjcExceptionBridging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E94B9BDF1EC425DD00C51318 /* ObjcExceptionBridging.framework */; };
 		E98720421EC2B4EF00317115 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E98720411EC2B4EF00317115 /* GoogleService-Info.plist */; };
 		E98720451EC3411900317115 /* AdMobManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98720441EC3411900317115 /* AdMobManager.swift */; };
 		E9A912CC1E45D4A400122710 /* kimitsu_tokyo_weekday_down.csv in Resources */ = {isa = PBXBuildFile; fileRef = E9A912C81E45D4A400122710 /* kimitsu_tokyo_weekday_down.csv */; };
@@ -35,6 +37,8 @@
 		B61F582050662717F805E7AA /* Pods_ExpressBusTimetable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExpressBusTimetable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E90FF1DD1E463E2A004EF8A5 /* CommuteNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommuteNavigationController.swift; sourceTree = "<group>"; };
 		E90FF1DF1E4642E8004EF8A5 /* Timetable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timetable.swift; sourceTree = "<group>"; };
+		E94B9BDD1EC425D400C51318 /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCGLogger.framework; path = "../../Library/Developer/Xcode/DerivedData/ExpressBusTimetable-fgykbntngfyqaxcmnsoscibrbhzc/Build/Products/Debug-iphonesimulator/XCGLogger/XCGLogger.framework"; sourceTree = "<group>"; };
+		E94B9BDF1EC425DD00C51318 /* ObjcExceptionBridging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjcExceptionBridging.framework; path = "../../Library/Developer/Xcode/DerivedData/ExpressBusTimetable-fgykbntngfyqaxcmnsoscibrbhzc/Build/Products/Debug-iphonesimulator/ObjcExceptionBridging/ObjcExceptionBridging.framework"; sourceTree = "<group>"; };
 		E98720411EC2B4EF00317115 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E98720441EC3411900317115 /* AdMobManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdMobManager.swift; sourceTree = "<group>"; };
 		E9A912C81E45D4A400122710 /* kimitsu_tokyo_weekday_down.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = kimitsu_tokyo_weekday_down.csv; sourceTree = "<group>"; };
@@ -61,6 +65,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E94B9BE01EC425DD00C51318 /* ObjcExceptionBridging.framework in Frameworks */,
+				E94B9BDE1EC425D400C51318 /* XCGLogger.framework in Frameworks */,
 				53C8C7ED2AE224F6FFF25AAA /* Pods_ExpressBusTimetable.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -71,6 +77,8 @@
 		793CFECCC81F668187939BB3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E94B9BDF1EC425DD00C51318 /* ObjcExceptionBridging.framework */,
+				E94B9BDD1EC425D400C51318 /* XCGLogger.framework */,
 				B61F582050662717F805E7AA /* Pods_ExpressBusTimetable.framework */,
 			);
 			name = Frameworks;

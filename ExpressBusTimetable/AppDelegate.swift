@@ -9,6 +9,34 @@
 import UIKit
 import Firebase
 import GoogleMobileAds
+import XCGLogger
+
+let log: XCGLogger = {
+    // Setup XCGLogger
+    let log = XCGLogger.default
+
+    #if DEBUG
+
+    log.setup(level: .debug, showThreadName: true, showLevel: true, showFileNames: true, showLineNumbers: true, writeToFile: nil)
+
+    #else
+
+    log.setup(level: .error, showThreadName: true, showLevel: true, showFileNames: true, showLineNumbers: true, writeToFile: nil)
+
+    #endif
+
+    // Alternatively, you can use emoji to highlight log levels (you probably just want to use one of these methods at a time).
+    let emojiLogFormatter = PrePostFixLogFormatter()
+    emojiLogFormatter.apply(prefix: "🗯🗯🗯 ", postfix: " 🗯🗯🗯", to: .verbose)
+    emojiLogFormatter.apply(prefix: "🔹🔹🔹 ", postfix: " 🔹🔹🔹", to: .debug)
+    emojiLogFormatter.apply(prefix: "ℹ️ℹ️ℹ️ ", postfix: " ℹ️ℹ️ℹ️", to: .info)
+    emojiLogFormatter.apply(prefix: "⚠️⚠️⚠️ ", postfix: " ⚠️⚠️⚠️", to: .warning)
+    emojiLogFormatter.apply(prefix: "‼️‼️‼️ ", postfix: " ‼️‼️‼️", to: .error)
+    emojiLogFormatter.apply(prefix: "💣💣💣 ", postfix: " 💣💣💣", to: .severe)
+    log.formatters = [emojiLogFormatter]
+
+    return log
+}()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

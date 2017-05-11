@@ -11,5 +11,6 @@ target 'ExpressBusTimetable' do
   pod 'Firebase/Core'
   pod 'Firebase/AdMob'
   pod 'Firebase/Crash'
+  pod 'XCGLogger'
 
 end

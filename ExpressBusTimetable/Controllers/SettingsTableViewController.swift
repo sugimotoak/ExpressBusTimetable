@@ -8,6 +8,7 @@
 
 import UIKit
 import ActionSheetPicker_3_0
+import XCGLogger
 
 class SettingsTableViewController: UITableViewController {
 
@@ -54,9 +55,9 @@ class SettingsTableViewController: UITableViewController {
             let label = tableView.cellForRow(at: indexPath)?.viewWithTag(1) as? UILabel
             let timetableWeekDayUp = TimetableStatus.WeekdayUp.getTimetable()
             let list = timetableWeekDayUp.busStopList
-            NSLog("\(list)")
+            log.debug("\(list)")
             let selection = list.index(of: UserDefaults.onBusStop) ?? 0
-            NSLog("\(selection),\(UserDefaults.onBusStop)")
+            log.debug("\(selection),\(UserDefaults.onBusStop)")
             let picker = ActionSheetStringPicker(title: title,
                                                  rows: list,
                                                  initialSelection: selection,
@@ -83,9 +84,9 @@ class SettingsTableViewController: UITableViewController {
             let label = tableView.cellForRow(at: indexPath)?.viewWithTag(1) as? UILabel
             let timetableWeekDayUp = TimetableStatus.WeekdayUp.getTimetable()
             let list = timetableWeekDayUp.busStopList
-            NSLog("\(list)")
+            log.debug("\(list)")
             let selection = list.index(of: UserDefaults.offBusStop) ?? 0
-            NSLog("\(selection),\(UserDefaults.offBusStop)")
+            log.debug("\(selection),\(UserDefaults.offBusStop)")
             let picker = ActionSheetStringPicker(title: title,
                                                  rows: list,
                                                  initialSelection: selection,

@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import GoogleMobileAds
+import XCGLogger
 
 class CommuteViewController: UIViewController, GADBannerViewDelegate {
     
@@ -143,6 +144,7 @@ class CommuteViewController: UIViewController, GADBannerViewDelegate {
     // MARK: - GADBannerViewDelegate
     
     func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+        log.error(error)
         bannerViewHeight.constant = 0
     }
     

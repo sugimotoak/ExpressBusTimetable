@@ -42,7 +42,7 @@ class Timetable {
     func loadTimetable(_ fileName: String) {
         let filePath = Bundle.main.path(forResource: fileName, ofType: "csv")!
         let stream = InputStream(fileAtPath: filePath)!
-        print("file : \(fileName)")
+        log.debug("file : \(fileName)")
         
         do {
             
@@ -50,7 +50,7 @@ class Timetable {
             for row in try CSV(stream: stream) {
                 
                 countField = row.count
-                print("\(row[0])")
+                log.debug("\(row[0])")
                 
                 if row[0].isEmpty && onBusStopList.count != 0 {
                     status = .OFF
@@ -84,15 +84,15 @@ class Timetable {
                 
             }
         } catch {
-            print("error")
+            log.debug("error")
         }
-        print("\(onBusStopList)")
-        print("\(offBusStopList)")
+        log.debug("\(onBusStopList)")
+        log.debug("\(offBusStopList)")
         busStopList = onBusStopList + [""] + offBusStopList
-        print("\(busStopList)")
-        print(countField)
-        print("\(busComList)")
-        print("\(timetable)")
+        log.debug("\(busStopList)")
+        log.debug(countField)
+        log.debug("\(busComList)")
+        log.debug("\(timetable)")
         
     }
     
@@ -107,8 +107,8 @@ class Timetable {
                 offBusStopIndex = index
             }
         }
-        print("\(onBusStopIndex):\(onBusStop)")
-        print("\(offBusStopIndex):\(offBusStop)")
+        log.debug("\(onBusStopIndex):\(onBusStop)")
+        log.debug("\(offBusStopIndex):\(offBusStop)")
         
         var ctList = [CommuteTimetable]()
         for row in timetable {
