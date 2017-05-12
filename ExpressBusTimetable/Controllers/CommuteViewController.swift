@@ -40,7 +40,6 @@ class CommuteViewController: UIViewController, GADBannerViewDelegate {
             displayFormatSegmentedControl.selectedSegmentIndex = 1
         }
         weekFormatSegmentedControl.selectedSegmentIndex = timetableStatus.isWeekend() ? 1 : 0
-        changeButton.title = timetableStatus.upDownRiverseValue()
         UserDefaults.timetableStatus = timetableStatus
         
         bannerView.adUnitID = "ca-app-pub-4629563331084064/4076897235"
@@ -56,7 +55,6 @@ class CommuteViewController: UIViewController, GADBannerViewDelegate {
         timetableStatus = UserDefaults.timetableStatus
         let onBusStop = UserDefaults.onBusStop
         let offBusStop = UserDefaults.offBusStop
-        changeButton.title = timetableStatus.upDownRiverseValue()
         let sct = timetableStatus.getTimetable().getCommuteTimetable(onBusStop, offBusStop)
         setSCT(sct)
         getShowingVC()?.tableView.reloadData()
@@ -94,7 +92,6 @@ class CommuteViewController: UIViewController, GADBannerViewDelegate {
         let onBusStop = UserDefaults.onBusStop
         let offBusStop = UserDefaults.offBusStop
         
-        changeButton.title = timetableStatus.upDownRiverseValue()
         let sct = timetableStatus.getTimetable().getCommuteTimetable(onBusStop, offBusStop)
         setSCT(sct)
         getShowingVC()?.tableView.reloadData()

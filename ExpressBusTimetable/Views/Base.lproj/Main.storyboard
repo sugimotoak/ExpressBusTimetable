@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--杢師４丁目ー東京駅八重洲口前-->
+        <!--onBusStop -> offBusStop-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="CommuteViewController" customModule="ExpressBusTimetable" customModuleProvider="target" sceneMemberID="viewController">
@@ -123,8 +123,8 @@
                             <constraint firstItem="zFG-oo-Y7M" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="z8X-pn-mHZ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="杢師４丁目ー東京駅八重洲口前" id="RLy-e4-1HI">
-                        <barButtonItem key="rightBarButtonItem" title="下り" id="f0N-Fb-NYk">
+                    <navigationItem key="navigationItem" title="onBusStop -&gt; offBusStop" id="RLy-e4-1HI">
+                        <barButtonItem key="rightBarButtonItem" image="transfer" id="f0N-Fb-NYk">
                             <connections>
                                 <action selector="selectChangeButton:" destination="BYZ-38-t0r" id="emT-Ce-ydf"/>
                             </connections>
@@ -383,5 +383,6 @@
         <image name="settings" width="30" height="30"/>
         <image name="table" width="12" height="12"/>
         <image name="timetable" width="30" height="30"/>
+        <image name="transfer" width="20" height="20"/>
     </resources>
 </document>
