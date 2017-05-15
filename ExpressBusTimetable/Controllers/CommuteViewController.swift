@@ -111,7 +111,8 @@ class CommuteViewController: UIViewController, GADBannerViewDelegate {
         
         let sct = timetableStatus.getTimetable().getCommuteTimetable(onBusStop, offBusStop)
         setSCT(sct)
-        getShowingVC()?.tableView.reloadData()
+        listTypeVC?.tableView.reloadData()
+        tableTypeVC?.tableView.reloadData()
         navigationItem.title = onBusStop + "->" + offBusStop
     }
     
@@ -128,16 +129,6 @@ class CommuteViewController: UIViewController, GADBannerViewDelegate {
         tableTypeVC?.sct = sct
     }
     
-    func getShowingVC() -> CommuteTableViewController? {
-        if !listContainerView.isHidden {
-            return listTypeVC
-        } else if !tableContainerView.isHidden {
-            return tableTypeVC
-        } else {
-            return nil
-        }
-    }
-    
     @IBAction func selectChangeButton(_ sender: Any) {
         timetableStatus = timetableStatus.switchUpDown()
         
@@ -145,7 +136,8 @@ class CommuteViewController: UIViewController, GADBannerViewDelegate {
         
         let sct = timetableStatus.getTimetable().getCommuteTimetable(onBusStop, offBusStop)
         setSCT(sct)
-        getShowingVC()?.tableView.reloadData()
+        listTypeVC?.tableView.reloadData()
+        tableTypeVC?.tableView.reloadData()
         
         navigationItem.title = onBusStop + "->" + offBusStop
     }
@@ -180,7 +172,8 @@ class CommuteViewController: UIViewController, GADBannerViewDelegate {
         }
         let sct = timetableStatus.getTimetable().getCommuteTimetable(UserDefaults.onBusStop, UserDefaults.offBusStop)
         setSCT(sct)
-        getShowingVC()?.tableView.reloadData()
+        listTypeVC?.tableView.reloadData()
+        tableTypeVC?.tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
