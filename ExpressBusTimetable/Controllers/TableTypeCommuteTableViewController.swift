@@ -37,7 +37,7 @@ class TableTypeCommuteTableViewController: CommuteTableViewController {
         for ct in sct.array[indexPath.section] {
             minuteList.append(ct.onBusStopMinute)
         }
-        cell.textLabel?.font = UIFont.monospacedDigitSystemFont(ofSize: 17, weight: UIFontWeightRegular)
+        cell.textLabel?.font = UIFont.monospacedDigitSystemFont(ofSize: 17, weight: UIFontWeightLight)
         cell.textLabel?.text = minuteList.joined(separator: "　")
         return cell
     }
