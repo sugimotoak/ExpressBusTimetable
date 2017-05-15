@@ -94,6 +94,7 @@
 				E98720441EC3411900317115 /* AdMobManager.swift */,
 			);
 			name = Utils;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		E9A912C71E45D4A400122710 /* Timetable */ = {
@@ -128,11 +129,11 @@
 		E9DF48D71E45C5C700406528 /* ExpressBusTimetable */ = {
 			isa = PBXGroup;
 			children = (
-				E98720431EC340FB00317115 /* Utils */,
 				E9FF96931EC09A2900A916B5 /* Controllers */,
 				E9FF96911EC0987700A916B5 /* Models */,
 				E9FF96901EC0983500A916B5 /* Resources */,
 				E9A912C71E45D4A400122710 /* Timetable */,
+				E98720431EC340FB00317115 /* Utils */,
 				E9FF96921EC09A2100A916B5 /* Views */,
 				E9DF48D81E45C5C700406528 /* AppDelegate.swift */,
 			);
@@ -162,9 +163,9 @@
 		E9FF96921EC09A2100A916B5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E94B9BE11EC59A5E00C51318 /* Commute.storyboard */,
 				E9DF48E11E45C5C700406528 /* LaunchScreen.storyboard */,
 				E9DF48DC1E45C5C700406528 /* Main.storyboard */,
-				E94B9BE11EC59A5E00C51318 /* Commute.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -176,9 +177,9 @@
 				E9FF968E1EBEC8A300A916B5 /* CommuteTableViewController.swift */,
 				E9DF48DA1E45C5C700406528 /* CommuteViewController.swift */,
 				E9E90A3F1EB5D5F3005432FC /* ListTypeCommuteTableViewController.swift */,
+				E94B9BE61EC7F00500C51318 /* SearchViewController.swift */,
 				E9CA2B2D1EAB268500C40213 /* SettingsTableViewController.swift */,
 				E9E90A411EB5D667005432FC /* TableTypeCommuteTableViewController.swift */,
-				E94B9BE61EC7F00500C51318 /* SearchViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -360,6 +361,7 @@
 				E94B9BE21EC59A5E00C51318 /* Base */,
 			);
 			name = Commute.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		E9DF48DC1E45C5C700406528 /* Main.storyboard */ = {
