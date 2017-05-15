@@ -14,6 +14,7 @@
 		E94B9BE01EC425DD00C51318 /* ObjcExceptionBridging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E94B9BDF1EC425DD00C51318 /* ObjcExceptionBridging.framework */; };
 		E94B9BE31EC59A5E00C51318 /* Commute.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E94B9BE11EC59A5E00C51318 /* Commute.storyboard */; };
 		E94B9BE71EC7F00500C51318 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94B9BE61EC7F00500C51318 /* SearchViewController.swift */; };
+		E97E3F271EC98C4F00BA4AE2 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E97E3F261EC98C4F00BA4AE2 /* Settings.bundle */; };
 		E98720421EC2B4EF00317115 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E98720411EC2B4EF00317115 /* GoogleService-Info.plist */; };
 		E98720451EC3411900317115 /* AdMobManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98720441EC3411900317115 /* AdMobManager.swift */; };
 		E9A912CC1E45D4A400122710 /* kimitsu_tokyo_weekday_down.csv in Resources */ = {isa = PBXBuildFile; fileRef = E9A912C81E45D4A400122710 /* kimitsu_tokyo_weekday_down.csv */; };
@@ -43,6 +44,7 @@
 		E94B9BDF1EC425DD00C51318 /* ObjcExceptionBridging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjcExceptionBridging.framework; path = "../../Library/Developer/Xcode/DerivedData/ExpressBusTimetable-fgykbntngfyqaxcmnsoscibrbhzc/Build/Products/Debug-iphonesimulator/ObjcExceptionBridging/ObjcExceptionBridging.framework"; sourceTree = "<group>"; };
 		E94B9BE21EC59A5E00C51318 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Commute.storyboard; sourceTree = "<group>"; };
 		E94B9BE61EC7F00500C51318 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		E97E3F261EC98C4F00BA4AE2 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = Settings.bundle; sourceTree = "<group>"; };
 		E98720411EC2B4EF00317115 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E98720441EC3411900317115 /* AdMobManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdMobManager.swift; sourceTree = "<group>"; };
 		E9A912C81E45D4A400122710 /* kimitsu_tokyo_weekday_down.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = kimitsu_tokyo_weekday_down.csv; sourceTree = "<group>"; };
@@ -93,7 +95,6 @@
 			children = (
 				E98720441EC3411900317115 /* AdMobManager.swift */,
 			);
-			name = Utils;
 			path = Utils;
 			sourceTree = "<group>";
 		};
@@ -146,6 +147,7 @@
 				E9DF48DF1E45C5C700406528 /* Assets.xcassets */,
 				E98720411EC2B4EF00317115 /* GoogleService-Info.plist */,
 				E9DF48E41E45C5C700406528 /* Info.plist */,
+				E97E3F261EC98C4F00BA4AE2 /* Settings.bundle */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -259,6 +261,7 @@
 			files = (
 				E9A912CE1E45D4A400122710 /* kimitsu_tokyo_weekend_down.csv in Resources */,
 				E98720421EC2B4EF00317115 /* GoogleService-Info.plist in Resources */,
+				E97E3F271EC98C4F00BA4AE2 /* Settings.bundle in Resources */,
 				E9DF48E31E45C5C700406528 /* LaunchScreen.storyboard in Resources */,
 				E9DF48E01E45C5C700406528 /* Assets.xcassets in Resources */,
 				E9A912CF1E45D4A400122710 /* kimitsu_tokyo_weekend_up.csv in Resources */,

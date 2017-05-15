@@ -14,3 +14,11 @@ target 'ExpressBusTimetable' do
   pod 'XCGLogger'
 
 end
+
+# Acknowledgements 
+post_install do | installer |
+require 'fileutils'
+
+FileUtils.cp_r('Pods/Target Support Files/Pods-ExpressBusTimetable/Pods-ExpressBusTimetable-acknowledgements.plist', 'ExpressBusTimetable/Resources/Settings.bundle/Acknowledgements.plist', :remove_destination => true)
+
+end
