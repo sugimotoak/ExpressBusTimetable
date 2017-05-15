@@ -12,6 +12,8 @@
 		E90FF1E01E4642E8004EF8A5 /* Timetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90FF1DF1E4642E8004EF8A5 /* Timetable.swift */; };
 		E94B9BDE1EC425D400C51318 /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E94B9BDD1EC425D400C51318 /* XCGLogger.framework */; };
 		E94B9BE01EC425DD00C51318 /* ObjcExceptionBridging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E94B9BDF1EC425DD00C51318 /* ObjcExceptionBridging.framework */; };
+		E94B9BE31EC59A5E00C51318 /* Commute.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E94B9BE11EC59A5E00C51318 /* Commute.storyboard */; };
+		E94B9BE71EC7F00500C51318 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94B9BE61EC7F00500C51318 /* SearchViewController.swift */; };
 		E98720421EC2B4EF00317115 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E98720411EC2B4EF00317115 /* GoogleService-Info.plist */; };
 		E98720451EC3411900317115 /* AdMobManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98720441EC3411900317115 /* AdMobManager.swift */; };
 		E9A912CC1E45D4A400122710 /* kimitsu_tokyo_weekday_down.csv in Resources */ = {isa = PBXBuildFile; fileRef = E9A912C81E45D4A400122710 /* kimitsu_tokyo_weekday_down.csv */; };
@@ -39,6 +41,8 @@
 		E90FF1DF1E4642E8004EF8A5 /* Timetable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timetable.swift; sourceTree = "<group>"; };
 		E94B9BDD1EC425D400C51318 /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCGLogger.framework; path = "../../Library/Developer/Xcode/DerivedData/ExpressBusTimetable-fgykbntngfyqaxcmnsoscibrbhzc/Build/Products/Debug-iphonesimulator/XCGLogger/XCGLogger.framework"; sourceTree = "<group>"; };
 		E94B9BDF1EC425DD00C51318 /* ObjcExceptionBridging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjcExceptionBridging.framework; path = "../../Library/Developer/Xcode/DerivedData/ExpressBusTimetable-fgykbntngfyqaxcmnsoscibrbhzc/Build/Products/Debug-iphonesimulator/ObjcExceptionBridging/ObjcExceptionBridging.framework"; sourceTree = "<group>"; };
+		E94B9BE21EC59A5E00C51318 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Commute.storyboard; sourceTree = "<group>"; };
+		E94B9BE61EC7F00500C51318 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		E98720411EC2B4EF00317115 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E98720441EC3411900317115 /* AdMobManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdMobManager.swift; sourceTree = "<group>"; };
 		E9A912C81E45D4A400122710 /* kimitsu_tokyo_weekday_down.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = kimitsu_tokyo_weekday_down.csv; sourceTree = "<group>"; };
@@ -160,6 +164,7 @@
 			children = (
 				E9DF48E11E45C5C700406528 /* LaunchScreen.storyboard */,
 				E9DF48DC1E45C5C700406528 /* Main.storyboard */,
+				E94B9BE11EC59A5E00C51318 /* Commute.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -173,6 +178,7 @@
 				E9E90A3F1EB5D5F3005432FC /* ListTypeCommuteTableViewController.swift */,
 				E9CA2B2D1EAB268500C40213 /* SettingsTableViewController.swift */,
 				E9E90A411EB5D667005432FC /* TableTypeCommuteTableViewController.swift */,
+				E94B9BE61EC7F00500C51318 /* SearchViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -258,6 +264,7 @@
 				E9DF48DE1E45C5C700406528 /* Main.storyboard in Resources */,
 				E9A912CD1E45D4A400122710 /* kimitsu_tokyo_weekday_up.csv in Resources */,
 				E9A912CC1E45D4A400122710 /* kimitsu_tokyo_weekday_down.csv in Resources */,
+				E94B9BE31EC59A5E00C51318 /* Commute.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +342,7 @@
 				E9E90A401EB5D5F3005432FC /* ListTypeCommuteTableViewController.swift in Sources */,
 				E98720451EC3411900317115 /* AdMobManager.swift in Sources */,
 				E90FF1E01E4642E8004EF8A5 /* Timetable.swift in Sources */,
+				E94B9BE71EC7F00500C51318 /* SearchViewController.swift in Sources */,
 				E90FF1DE1E463E2A004EF8A5 /* CommuteNavigationController.swift in Sources */,
 				E9FF968F1EBEC8A300A916B5 /* CommuteTableViewController.swift in Sources */,
 				E9DF48D91E45C5C700406528 /* AppDelegate.swift in Sources */,
@@ -346,6 +354,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		E94B9BE11EC59A5E00C51318 /* Commute.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E94B9BE21EC59A5E00C51318 /* Base */,
+			);
+			name = Commute.storyboard;
+			sourceTree = "<group>";
+		};
 		E9DF48DC1E45C5C700406528 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

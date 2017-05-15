@@ -24,12 +24,61 @@ class CommuteViewController: UIViewController, GADBannerViewDelegate {
     var listTypeVC: ListTypeCommuteTableViewController?
     var tableTypeVC: TableTypeCommuteTableViewController?
     
-    var timetableStatus: TimetableStatus = UserDefaults.timetableStatus.today()
+    var isSearch = false
+    var timetableStatus: TimetableStatus{
+        get{
+            return isSearch ? UserDefaults.searchTimetableStatus : UserDefaults.timetableStatus
+        }
+        set(value){
+            if isSearch {
+                UserDefaults.searchTimetableStatus = value
+            } else {
+                UserDefaults.timetableStatus = value
+            }
+        }
+    }
+    var displayType : TimetableStatus.DisplayType {
+        get{
+            return isSearch ? UserDefaults.searchTableViewDisplayType : UserDefaults.tableViewDisplayType
+        }
+        set(value){
+            if isSearch {
+                UserDefaults.searchTableViewDisplayType = value
+            } else {
+                UserDefaults.tableViewDisplayType = value
+            }
+        }
+    }
+    var onBusStop:String{
+        get{
+            return isSearch ? UserDefaults.searchOnBusStop : UserDefaults.onBusStop
+        }
+        set(value){
+            if isSearch {
+                UserDefaults.searchOnBusStop = value
+            } else {
+                UserDefaults.onBusStop = value
+            }
+            
+        }
+    }
+    var offBusStop:String{
+        get{
+            return isSearch ? UserDefaults.searchOffBusStop : UserDefaults.offBusStop
+        }
+        set(value){
+            if isSearch {
+                UserDefaults.searchOffBusStop = value
+            } else {
+                UserDefaults.offBusStop = value
+            }
+            
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let displayType = UserDefaults.tableViewDisplayType
         if displayType == .LIST {
             listContainerView.isHidden = false
             tableContainerView.isHidden = true
@@ -39,22 +88,27 @@ class CommuteViewController: UIViewController, GADBannerViewDelegate {
             tableContainerView.isHidden = false
             displayFormatSegmentedControl.selectedSegmentIndex = 1
         }
+        timetableStatus = timetableStatus.today()
         weekFormatSegmentedControl.selectedSegmentIndex = timetableStatus.isWeekend() ? 1 : 0
-        UserDefaults.timetableStatus = timetableStatus
         
-        bannerView.adUnitID = "ca-app-pub-4629563331084064/4076897235"
-        bannerView.rootViewController = self
-        bannerView.delegate = self
-        bannerViewHeight.constant = 50
-        bannerView.load(AdMobManager.getRequest())
+        if isSearch {
+            bannerView.adUnitID = "ca-app-pub-4629563331084064/5144514436"
+            bannerView.rootViewController = self
+            bannerView.delegate = self
+            bannerViewHeight.constant = 50
+            bannerView.load(AdMobManager.getRequest())
+        } else {
+            bannerView.adUnitID = "ca-app-pub-4629563331084064/4076897235"
+            bannerView.rootViewController = self
+            bannerView.delegate = self
+            bannerViewHeight.constant = 50
+            bannerView.load(AdMobManager.getRequest())
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        timetableStatus = UserDefaults.timetableStatus
-        let onBusStop = UserDefaults.onBusStop
-        let offBusStop = UserDefaults.offBusStop
         let sct = timetableStatus.getTimetable().getCommuteTimetable(onBusStop, offBusStop)
         setSCT(sct)
         getShowingVC()?.tableView.reloadData()
@@ -86,11 +140,8 @@ class CommuteViewController: UIViewController, GADBannerViewDelegate {
     
     @IBAction func selectChangeButton(_ sender: Any) {
         timetableStatus = timetableStatus.switchUpDown()
-        UserDefaults.timetableStatus = timetableStatus
         
-        swap(&UserDefaults.onBusStop, &UserDefaults.offBusStop)
-        let onBusStop = UserDefaults.onBusStop
-        let offBusStop = UserDefaults.offBusStop
+        swap(&onBusStop, &offBusStop)
         
         let sct = timetableStatus.getTimetable().getCommuteTimetable(onBusStop, offBusStop)
         setSCT(sct)
@@ -104,12 +155,12 @@ class CommuteViewController: UIViewController, GADBannerViewDelegate {
         case 0:
             listContainerView.isHidden = false
             tableContainerView.isHidden = true
-            UserDefaults.tableViewDisplayType = .LIST
+            displayType = .LIST
             break
         case 1:
             tableContainerView.isHidden = false
             listContainerView.isHidden = true
-            UserDefaults.tableViewDisplayType = .TABLE
+            displayType = .TABLE
             break
         default:
             break
@@ -127,7 +178,6 @@ class CommuteViewController: UIViewController, GADBannerViewDelegate {
         default:
             break
         }
-        UserDefaults.timetableStatus = timetableStatus
         let sct = timetableStatus.getTimetable().getCommuteTimetable(UserDefaults.onBusStop, UserDefaults.offBusStop)
         setSCT(sct)
         getShowingVC()?.tableView.reloadData()
