@@ -32,9 +32,14 @@ class ListTypeCommuteTableViewController: CommuteTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "listCell")
-        cell.textLabel?.font = UIFont.monospacedDigitSystemFont(ofSize: 17, weight: UIFontWeightRegular)
-        cell.textLabel?.text = "\(sct.array[indexPath.section][indexPath.row])"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "listCell")!
+        let timetable = sct.array[indexPath.section][indexPath.row]
+        let timeLabel = cell.contentView.viewWithTag(1) as! UILabel
+        let destinationLabel = cell.contentView.viewWithTag(2) as! UILabel
+        timeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 17, weight: UIFontWeightLight)
+        timeLabel.text = timetable.onOffBusStopTime
+        destinationLabel.text = timetable.destinationBusStop
+        
         return cell
     }
 

@@ -198,10 +198,15 @@ class SectionizedCommuteTimetable {
     }
 }
 
-class CommuteTimetable: CustomStringConvertible {
+class CommuteTimetable {
     let onBusStopTime: String
     let offBusStopTime: String
     let destinationBusStop: String
+    
+    var onOffBusStopTime: String {
+        return "\(onBusStopTime) - \(offBusStopTime)"
+    }
+    
     var onBusStopMinute: String {
         return offBusStopTime.substring(from: offBusStopTime.index(offBusStopTime.endIndex, offsetBy: -2))
     }
@@ -211,8 +216,6 @@ class CommuteTimetable: CustomStringConvertible {
         self.offBusStopTime = CommuteTimetable.formatTime(offBusStopTime)
         self.destinationBusStop = destinationBusStop
     }
-    
-    var description: String { return "\(onBusStopTime) - \(offBusStopTime) \(destinationBusStop)行き" }
     
     static func formatTime(_ time: String) -> String {
         let addZero = "0" + time
