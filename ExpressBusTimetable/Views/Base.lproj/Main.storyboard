@@ -19,7 +19,7 @@
                         <sections>
                             <tableViewSection id="UW2-Vd-v9M">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Gge-I0-7Xp" detailTextLabel="hwm-lb-sv7" style="IBUITableViewCellStyleValue1" id="BS8-XY-787">
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Gge-I0-7Xp" detailTextLabel="hwm-lb-sv7" style="IBUITableViewCellStyleValue1" id="BS8-XY-787">
                                         <rect key="frame" x="0.0" y="35" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BS8-XY-787" id="l1e-jq-FsH">
