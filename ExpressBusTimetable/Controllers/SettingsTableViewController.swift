@@ -9,6 +9,7 @@
 import UIKit
 import ActionSheetPicker_3_0
 import XCGLogger
+import AAMFeedback
 
 class SettingsTableViewController: UITableViewController {
 
@@ -119,6 +120,13 @@ class SettingsTableViewController: UITableViewController {
             alert.addAction(cancelAction)
             alert.addAction(defaultAction)
             present(alert, animated: true, completion: nil)
+            break
+        case IndexPath(row: 0, section: 2):
+            let avc = AAMFeedbackViewController()
+            avc.toRecipients = ["sugimotoak@gmail.com"]
+            avc.ccRecipients = nil
+            let nav = UINavigationController(rootViewController: avc)
+            present(nav, animated: true, completion: nil)
             break
         default:
             break

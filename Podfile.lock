@@ -1,4 +1,6 @@
 PODS:
+  - AAMFeedback (0.6.0):
+    - UIDeviceIdentifier
   - ActionSheetPicker-3.0 (2.2.0)
   - CSV.swift (1.1.2)
   - Firebase/AdMob (3.17.0):
@@ -34,12 +36,14 @@ PODS:
     - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
   - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
   - Protobuf (3.3.0)
+  - UIDeviceIdentifier (1.0.3)
   - XCGLogger (5.0.1):
     - XCGLogger/Core (= 5.0.1)
   - XCGLogger/Core (5.0.1):
     - ObjcExceptionBridging
 
 DEPENDENCIES:
+  - AAMFeedback
   - ActionSheetPicker-3.0
   - CSV.swift (~> 1.1)
   - Firebase/AdMob
@@ -48,6 +52,7 @@ DEPENDENCIES:
   - XCGLogger
 
 SPEC CHECKSUMS:
+  AAMFeedback: 2aa6e0e63991444856807d12dab24cd619b9e949
   ActionSheetPicker-3.0: d11a4c12c6aaf704b8a3f56d179198c99f3e41e6
   CSV.swift: 0aad3b06980034c8fa296456b708ac9128ebbdf9
   Firebase: 4b66b5b59c43edac745b87f0c87e42cdd0279c13
@@ -59,8 +64,9 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
   Protobuf: d582fecf68201eac3d79ed61369ef45734394b9c
+  UIDeviceIdentifier: 3d1bf1348e27546c8ebeef2f02ce11ddb32730e7
   XCGLogger: 0b43697155d41e4a1b15fc776f319c2141646b09
 
-PODFILE CHECKSUM: 50c039018e5105ed55e796a59e6a29da4f75d79c
+PODFILE CHECKSUM: d940d5a4423d901262c4343fa8d56edae0e0ce1c
 
 COCOAPODS: 1.1.1
