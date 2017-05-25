@@ -15,7 +15,7 @@ import ChameleonFramework
 public class EBTColor {
 
     public enum Theme: String {
-        case Default = "Black"
+        case Default = "Default"
         case White = "White"
     }
 

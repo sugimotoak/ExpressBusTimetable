@@ -40,7 +40,7 @@ public extension UserDefaults {
     static let DEFAULT_SEARCH_TABLEVIEW_TYPE = "LIST"
     
     static let KEY_COLOR_THEME = "KEY_COLOR_THEME"
-    static let DEFAULT_COLOR_THEME = "Black"
+    static let DEFAULT_COLOR_THEME = "Default"
     
     static func getValue(key: String, defaultValue: String) -> String {
         if let value = standard.string(forKey: key) {
