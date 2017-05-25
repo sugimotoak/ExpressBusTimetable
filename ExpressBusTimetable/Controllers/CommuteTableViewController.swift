@@ -12,18 +12,14 @@ class CommuteTableViewController: UITableViewController {
 
     var sct = SectionizedCommuteTimetable([])
 
-    /*
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.tableView.backgroundColor = EBTColor.sharedInstance.secondaryColor
+        self.tableView.sectionIndexBackgroundColor = EBTColor.sharedInstance.sectionIndexBackgroundColor
+        self.tableView.sectionIndexTrackingBackgroundColor = EBTColor.sharedInstance.sectionIndexBackgroundColor
     }
-    */
-    
+
     /*
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -36,13 +32,19 @@ class CommuteTableViewController: UITableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return sct.array.count
     }
-    
+
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sct.sectionNames[section]
     }
-    
+
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         return sct.sectionIndexes
+    }
+
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let v = view as! UITableViewHeaderFooterView
+        v.tintColor = EBTColor.sharedInstance.primaryColor
+        v.textLabel?.textColor = EBTColor.sharedInstance.primaryTextColor
     }
 
     /*

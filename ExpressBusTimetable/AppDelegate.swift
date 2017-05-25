@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import GoogleMobileAds
 import XCGLogger
+import ChameleonFramework
 
 let log: XCGLogger = {
     // Setup XCGLogger
@@ -45,6 +46,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
+        // Set Color
+        EBTColor.sharedInstance.theme = UserDefaults.colorTheme
+        let primaryColor = EBTColor.sharedInstance.primaryColor
+        let tintColor = EBTColor.sharedInstance.tintColor
+        UINavigationBar.appearance().barTintColor = primaryColor
+        UINavigationBar.appearance().isTranslucent = false
+        let textColor = EBTColor.sharedInstance.primaryTextColor
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: textColor]
+        UINavigationBar.appearance().tintColor = tintColor
+        if !EBTColor.sharedInstance.isPrimaryTextColorBlack {
+            UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
+        }
+        UITabBar.appearance().barTintColor = primaryColor
+        UITabBar.appearance().tintColor = tintColor
+        UITabBar.appearance().isTranslucent = false
 
         // Use Firebase library to configure APIs
         FIRApp.configure()

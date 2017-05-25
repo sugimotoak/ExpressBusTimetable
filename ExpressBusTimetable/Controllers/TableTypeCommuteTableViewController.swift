@@ -37,8 +37,10 @@ class TableTypeCommuteTableViewController: CommuteTableViewController {
         for ct in sct.array[indexPath.section] {
             minuteList.append(ct.onBusStopMinute)
         }
+        cell.backgroundColor = EBTColor.sharedInstance.secondaryColor
         cell.textLabel?.font = UIFont.monospacedDigitSystemFont(ofSize: 17, weight: UIFontWeightLight)
         cell.textLabel?.text = minuteList.joined(separator: "　")
+        cell.textLabel?.textColor = EBTColor.sharedInstance.secondaryTextColor
         return cell
     }
 

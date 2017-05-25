@@ -39,6 +39,9 @@ public extension UserDefaults {
     static let KEY_SEARCH_TABLEVIEW_TYPE = "KEY_SEARCH_TABLEVIEW_TYPE"
     static let DEFAULT_SEARCH_TABLEVIEW_TYPE = "LIST"
     
+    static let KEY_COLOR_THEME = "KEY_COLOR_THEME"
+    static let DEFAULT_COLOR_THEME = "Black"
+    
     static func getValue(key: String, defaultValue: String) -> String {
         if let value = standard.string(forKey: key) {
             return value
@@ -125,6 +128,16 @@ public extension UserDefaults {
         }
         set(value) {
             standard.set(value.rawValue, forKey: KEY_SEARCH_TABLEVIEW_TYPE)
+            standard.synchronize()
+        }
+    }
+    
+    static var colorTheme: EBTColor.Theme {
+        get {
+            return EBTColor.Theme(rawValue: getValue(key: KEY_COLOR_THEME, defaultValue: DEFAULT_COLOR_THEME))!
+        }
+        set(value) {
+            standard.set(value.rawValue, forKey: KEY_COLOR_THEME)
             standard.synchronize()
         }
     }

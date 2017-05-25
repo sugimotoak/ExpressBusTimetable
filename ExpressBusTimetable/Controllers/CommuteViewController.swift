@@ -16,6 +16,7 @@ class CommuteViewController: UIViewController, GADBannerViewDelegate {
     @IBOutlet weak var listContainerView: UIView!
     @IBOutlet weak var tableContainerView: UIView!
     @IBOutlet weak var changeButton: UIBarButtonItem!
+    @IBOutlet weak var segmentedControlBaseView: UIView!
     @IBOutlet weak var displayFormatSegmentedControl: UISegmentedControl!
     @IBOutlet weak var weekFormatSegmentedControl: UISegmentedControl!
     @IBOutlet weak var bannerView: GADBannerView!
@@ -25,11 +26,11 @@ class CommuteViewController: UIViewController, GADBannerViewDelegate {
     var tableTypeVC: TableTypeCommuteTableViewController?
     
     var isSearch = false
-    var timetableStatus: TimetableStatus{
-        get{
+    var timetableStatus: TimetableStatus {
+        get {
             return isSearch ? UserDefaults.searchTimetableStatus : UserDefaults.timetableStatus
         }
-        set(value){
+        set(value) {
             if isSearch {
                 UserDefaults.searchTimetableStatus = value
             } else {
@@ -37,11 +38,11 @@ class CommuteViewController: UIViewController, GADBannerViewDelegate {
             }
         }
     }
-    var displayType : TimetableStatus.DisplayType {
-        get{
+    var displayType: TimetableStatus.DisplayType {
+        get {
             return isSearch ? UserDefaults.searchTableViewDisplayType : UserDefaults.tableViewDisplayType
         }
-        set(value){
+        set(value) {
             if isSearch {
                 UserDefaults.searchTableViewDisplayType = value
             } else {
@@ -49,11 +50,11 @@ class CommuteViewController: UIViewController, GADBannerViewDelegate {
             }
         }
     }
-    var onBusStop:String{
-        get{
+    var onBusStop: String {
+        get {
             return isSearch ? UserDefaults.searchOnBusStop : UserDefaults.onBusStop
         }
-        set(value){
+        set(value) {
             if isSearch {
                 UserDefaults.searchOnBusStop = value
             } else {
@@ -62,11 +63,11 @@ class CommuteViewController: UIViewController, GADBannerViewDelegate {
             
         }
     }
-    var offBusStop:String{
-        get{
+    var offBusStop: String {
+        get {
             return isSearch ? UserDefaults.searchOffBusStop : UserDefaults.offBusStop
         }
-        set(value){
+        set(value) {
             if isSearch {
                 UserDefaults.searchOffBusStop = value
             } else {
@@ -78,6 +79,9 @@ class CommuteViewController: UIViewController, GADBannerViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        segmentedControlBaseView.backgroundColor = EBTColor.sharedInstance.primaryColor
+        bannerView.backgroundColor = EBTColor.sharedInstance.secondaryColor
         
         if displayType == .LIST {
             listContainerView.isHidden = false

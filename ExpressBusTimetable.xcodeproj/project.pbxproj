@@ -10,6 +10,7 @@
 		53C8C7ED2AE224F6FFF25AAA /* Pods_ExpressBusTimetable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B61F582050662717F805E7AA /* Pods_ExpressBusTimetable.framework */; };
 		E90FF1DE1E463E2A004EF8A5 /* CommuteNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90FF1DD1E463E2A004EF8A5 /* CommuteNavigationController.swift */; };
 		E90FF1E01E4642E8004EF8A5 /* Timetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90FF1DF1E4642E8004EF8A5 /* Timetable.swift */; };
+		E91754DF1ECD975E00D9885D /* EBTColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91754DE1ECD975E00D9885D /* EBTColor.swift */; };
 		E94B9BDE1EC425D400C51318 /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E94B9BDD1EC425D400C51318 /* XCGLogger.framework */; };
 		E94B9BE01EC425DD00C51318 /* ObjcExceptionBridging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E94B9BDF1EC425DD00C51318 /* ObjcExceptionBridging.framework */; };
 		E94B9BE31EC59A5E00C51318 /* Commute.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E94B9BE11EC59A5E00C51318 /* Commute.storyboard */; };
@@ -40,11 +41,12 @@
 		B61F582050662717F805E7AA /* Pods_ExpressBusTimetable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExpressBusTimetable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E90FF1DD1E463E2A004EF8A5 /* CommuteNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommuteNavigationController.swift; sourceTree = "<group>"; };
 		E90FF1DF1E4642E8004EF8A5 /* Timetable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timetable.swift; sourceTree = "<group>"; };
+		E91754DE1ECD975E00D9885D /* EBTColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EBTColor.swift; sourceTree = "<group>"; };
 		E94B9BDD1EC425D400C51318 /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCGLogger.framework; path = "../../Library/Developer/Xcode/DerivedData/ExpressBusTimetable-fgykbntngfyqaxcmnsoscibrbhzc/Build/Products/Debug-iphonesimulator/XCGLogger/XCGLogger.framework"; sourceTree = "<group>"; };
 		E94B9BDF1EC425DD00C51318 /* ObjcExceptionBridging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjcExceptionBridging.framework; path = "../../Library/Developer/Xcode/DerivedData/ExpressBusTimetable-fgykbntngfyqaxcmnsoscibrbhzc/Build/Products/Debug-iphonesimulator/ObjcExceptionBridging/ObjcExceptionBridging.framework"; sourceTree = "<group>"; };
 		E94B9BE21EC59A5E00C51318 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Commute.storyboard; sourceTree = "<group>"; };
 		E94B9BE61EC7F00500C51318 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		E97E3F261EC98C4F00BA4AE2 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = Settings.bundle; sourceTree = "<group>"; };
+		E97E3F261EC98C4F00BA4AE2 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		E98720411EC2B4EF00317115 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E98720441EC3411900317115 /* AdMobManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdMobManager.swift; sourceTree = "<group>"; };
 		E9A912C81E45D4A400122710 /* kimitsu_tokyo_weekday_down.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = kimitsu_tokyo_weekday_down.csv; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				E98720441EC3411900317115 /* AdMobManager.swift */,
+				E91754DE1ECD975E00D9885D /* EBTColor.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				E9DF48D91E45C5C700406528 /* AppDelegate.swift in Sources */,
 				E9CA2B2A1EA9DA2100C40213 /* TimetableStatus.swift in Sources */,
 				E9CA2B2E1EAB268500C40213 /* SettingsTableViewController.swift in Sources */,
+				E91754DF1ECD975E00D9885D /* EBTColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

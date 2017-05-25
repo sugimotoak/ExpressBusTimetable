@@ -13,6 +13,7 @@ target 'ExpressBusTimetable' do
   pod 'Firebase/Crash'
   pod 'XCGLogger'
   pod "AAMFeedback"
+  pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
 
 end
 

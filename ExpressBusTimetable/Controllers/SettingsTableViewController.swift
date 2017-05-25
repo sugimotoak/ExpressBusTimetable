@@ -110,6 +110,31 @@ class SettingsTableViewController: UITableViewController {
             picker?.show()
             break
         case IndexPath(row: 0, section: 1):
+            let label = tableView.cellForRow(at: indexPath)?.viewWithTag(1) as? UILabel
+            label?.text = UserDefaults.colorTheme.rawValue
+
+            let list = [EBTColor.Theme.Default.rawValue, EBTColor.Theme.White.rawValue]
+            let selection = list.index(of: UserDefaults.colorTheme.rawValue) ?? 0
+            let picker = ActionSheetStringPicker(title: title,
+                                                 rows: list,
+                                                 initialSelection: selection,
+                                                 doneBlock: {
+                                                     _, _, selectedValue in
+                                                     let value: String = selectedValue as! String
+                                                     if !value.isEmpty {
+                                                         label?.text = value
+                                                         let theme = EBTColor.Theme(rawValue: value) ?? .Default
+                                                         UserDefaults.colorTheme = theme
+                                                     }
+                                                     tableView.deselectRow(at: indexPath, animated: true)
+                                                     return },
+                                                 cancel: { _ in
+                                                     tableView.deselectRow(at: indexPath, animated: true)
+                                                     return },
+                                                 origin: view)
+            picker?.show()
+            break
+        case IndexPath(row: 0, section: 2):
             let alert: UIAlertController = UIAlertController(title: "リセットしますか？", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
             let defaultAction: UIAlertAction = UIAlertAction(title: "リセットする", style: UIAlertActionStyle.destructive, handler: {
                 (_: UIAlertAction!) -> Void in
@@ -121,7 +146,7 @@ class SettingsTableViewController: UITableViewController {
             alert.addAction(defaultAction)
             present(alert, animated: true, completion: nil)
             break
-        case IndexPath(row: 0, section: 2):
+        case IndexPath(row: 0, section: 3):
             let avc = AAMFeedbackViewController()
             avc.toRecipients = ["sugimotoak@gmail.com"]
             avc.ccRecipients = nil
@@ -137,15 +162,19 @@ class SettingsTableViewController: UITableViewController {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
 
         switch indexPath {
-        case IndexPath(item: 1, section: 0):
+        case IndexPath(row: 1, section: 0):
             let onBusStop = UserDefaults.onBusStop
             let onBusStopLabel = cell.viewWithTag(1) as? UILabel
             onBusStopLabel?.text = onBusStop
             break
-        case IndexPath(item: 2, section: 0):
+        case IndexPath(row: 2, section: 0):
             let offBusStop = UserDefaults.offBusStop
             let offBusStopLabel = cell.viewWithTag(1) as? UILabel
             offBusStopLabel?.text = offBusStop
+            break
+        case IndexPath(row: 0, section: 1):
+            let label = cell.viewWithTag(1) as? UILabel
+            label?.text = UserDefaults.colorTheme.rawValue
             break
         default:
             break
