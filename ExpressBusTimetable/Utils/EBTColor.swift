@@ -16,7 +16,7 @@ public class EBTColor {
 
     public enum Theme: String {
         case Default = "Black"
-        case White
+        case White = "White"
     }
 
     static let sharedInstance = EBTColor()
