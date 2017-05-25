@@ -20,6 +20,12 @@ class CommuteTableViewController: UITableViewController {
         self.tableView.sectionIndexTrackingBackgroundColor = EBTColor.sharedInstance.sectionIndexBackgroundColor
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.tableView.reloadData()
+    }
+
     /*
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
