@@ -65,6 +65,7 @@
 		E9DF48E41E45C5C700406528 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9E90A3F1EB5D5F3005432FC /* ListTypeCommuteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTypeCommuteTableViewController.swift; sourceTree = "<group>"; };
 		E9E90A411EB5D667005432FC /* TableTypeCommuteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableTypeCommuteTableViewController.swift; sourceTree = "<group>"; };
+		E9F155D41EDA4B5900A03D02 /* ExpressBusTimetable.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ExpressBusTimetable.entitlements; sourceTree = "<group>"; };
 		E9FF968E1EBEC8A300A916B5 /* CommuteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommuteTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,6 +134,7 @@
 		E9DF48D71E45C5C700406528 /* ExpressBusTimetable */ = {
 			isa = PBXGroup;
 			children = (
+				E9F155D41EDA4B5900A03D02 /* ExpressBusTimetable.entitlements */,
 				E9FF96931EC09A2900A916B5 /* Controllers */,
 				E9FF96911EC0987700A916B5 /* Models */,
 				E9FF96901EC0983500A916B5 /* Resources */,
@@ -236,6 +238,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 7CD52XE763;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -490,6 +497,7 @@
 			baseConfigurationReference = 361BF0182998719B86C3329E /* Pods-ExpressBusTimetable.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ExpressBusTimetable/ExpressBusTimetable.entitlements;
 				DEVELOPMENT_TEAM = 7CD52XE763;
 				INFOPLIST_FILE = ExpressBusTimetable/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -505,6 +513,7 @@
 			baseConfigurationReference = 4A177AFB988C492F12930528 /* Pods-ExpressBusTimetable.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ExpressBusTimetable/ExpressBusTimetable.entitlements;
 				DEVELOPMENT_TEAM = 7CD52XE763;
 				INFOPLIST_FILE = ExpressBusTimetable/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
