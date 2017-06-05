@@ -49,6 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Set Color
         EBTColor.sharedInstance.theme = UserDefaults.colorTheme
+        FIRAnalytics.setUserPropertyString(EBTColor.sharedInstance.theme.rawValue, forName: "theme_color")
         let primaryColor = EBTColor.sharedInstance.primaryColor
         let tintColor = EBTColor.sharedInstance.tintColor
         UINavigationBar.appearance().barTintColor = primaryColor
