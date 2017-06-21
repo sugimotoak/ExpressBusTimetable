@@ -13,10 +13,10 @@ class SearchViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        self.tableView.backgroundColor = EBTColor.sharedInstance.primaryColor
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -38,20 +38,20 @@ class SearchViewController: UITableViewController {
                                                  rows: list,
                                                  initialSelection: selection,
                                                  doneBlock: {
-                                                    _, _, selectedValue in
-                                                    let value: String = selectedValue as! String
-                                                    if !value.isEmpty {
-                                                        label?.text = value
-                                                        UserDefaults.searchOnBusStop = value
-                                                        if let upDown = timetableWeekDayUp.checkUpDown(value, UserDefaults.searchOffBusStop) {
-                                                            UserDefaults.searchTimetableStatus = UserDefaults.searchTimetableStatus.changeUpDown(upDown: upDown)
-                                                        }
-                                                    }
-                                                    tableView.deselectRow(at: indexPath, animated: true)
-                                                    return },
+                                                     _, _, selectedValue in
+                                                     let value: String = selectedValue as! String
+                                                     if !value.isEmpty {
+                                                         label?.text = value
+                                                         UserDefaults.searchOnBusStop = value
+                                                         if let upDown = timetableWeekDayUp.checkUpDown(value, UserDefaults.searchOffBusStop) {
+                                                             UserDefaults.searchTimetableStatus = UserDefaults.searchTimetableStatus.changeUpDown(upDown: upDown)
+                                                         }
+                                                     }
+                                                     tableView.deselectRow(at: indexPath, animated: true)
+                                                     return },
                                                  cancel: { _ in
-                                                    tableView.deselectRow(at: indexPath, animated: true)
-                                                    return },
+                                                     tableView.deselectRow(at: indexPath, animated: true)
+                                                     return },
                                                  origin: view)
             picker?.show()
             break
@@ -67,20 +67,20 @@ class SearchViewController: UITableViewController {
                                                  rows: list,
                                                  initialSelection: selection,
                                                  doneBlock: {
-                                                    _, _, selectedValue in
-                                                    let value: String = selectedValue as! String
-                                                    if !value.isEmpty {
-                                                        label?.text = value
-                                                        UserDefaults.searchOffBusStop = value
-                                                        if let upDown = timetableWeekDayUp.checkUpDown(UserDefaults.searchOnBusStop, value) {
-                                                            UserDefaults.searchTimetableStatus = UserDefaults.searchTimetableStatus.changeUpDown(upDown: upDown)
-                                                        }
-                                                    }
-                                                    tableView.deselectRow(at: indexPath, animated: true)
-                                                    return },
+                                                     _, _, selectedValue in
+                                                     let value: String = selectedValue as! String
+                                                     if !value.isEmpty {
+                                                         label?.text = value
+                                                         UserDefaults.searchOffBusStop = value
+                                                         if let upDown = timetableWeekDayUp.checkUpDown(UserDefaults.searchOnBusStop, value) {
+                                                             UserDefaults.searchTimetableStatus = UserDefaults.searchTimetableStatus.changeUpDown(upDown: upDown)
+                                                         }
+                                                     }
+                                                     tableView.deselectRow(at: indexPath, animated: true)
+                                                     return },
                                                  cancel: { _ in
-                                                    tableView.deselectRow(at: indexPath, animated: true)
-                                                    return },
+                                                     tableView.deselectRow(at: indexPath, animated: true)
+                                                     return },
                                                  origin: view)
             picker?.show()
             break
@@ -107,18 +107,28 @@ class SearchViewController: UITableViewController {
             break
         }
         
+        cell.backgroundColor = EBTColor.sharedInstance.secondaryColor
+        (cell.viewWithTag(1) as? UILabel)?.textColor = EBTColor.sharedInstance.secondaryTextColor
+        (cell.viewWithTag(2) as? UILabel)?.textColor = EBTColor.sharedInstance.secondaryTextColor
+        
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let v = view as! UITableViewHeaderFooterView
+        v.tintColor = EBTColor.sharedInstance.primaryColor
+        v.textLabel?.textColor = EBTColor.sharedInstance.primaryTextColor
+    }
+    
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
         if segue.identifier == "Search" {
-
+            
             let vc = segue.destination as! CommuteViewController
             
             vc.isSearch = true

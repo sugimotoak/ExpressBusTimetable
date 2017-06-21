@@ -15,12 +15,14 @@ class SettingsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.tableView.backgroundColor = EBTColor.sharedInstance.primaryColor
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        tableView.reloadData()
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -180,7 +182,17 @@ class SettingsTableViewController: UITableViewController {
             break
         }
 
+        cell.backgroundColor = EBTColor.sharedInstance.secondaryColor
+        (cell.viewWithTag(1) as? UILabel)?.textColor = EBTColor.sharedInstance.secondaryTextColor
+        (cell.viewWithTag(2) as? UILabel)?.textColor = EBTColor.sharedInstance.secondaryTextColor
+
         return cell
+    }
+
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let v = view as! UITableViewHeaderFooterView
+        v.tintColor = EBTColor.sharedInstance.primaryColor
+        v.textLabel?.textColor = EBTColor.sharedInstance.primaryTextColor
     }
 
     /*
