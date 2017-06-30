@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		53C8C7ED2AE224F6FFF25AAA /* Pods_ExpressBusTimetable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B61F582050662717F805E7AA /* Pods_ExpressBusTimetable.framework */; };
+		E900B1091EFB8CB4008C0B99 /* kimitsu_haneda_weekday_down.csv in Resources */ = {isa = PBXBuildFile; fileRef = E900B1051EFB8CB4008C0B99 /* kimitsu_haneda_weekday_down.csv */; };
+		E900B10A1EFB8CB4008C0B99 /* kimitsu_haneda_weekday_up.csv in Resources */ = {isa = PBXBuildFile; fileRef = E900B1061EFB8CB4008C0B99 /* kimitsu_haneda_weekday_up.csv */; };
+		E900B10B1EFB8CB4008C0B99 /* kimitsu_haneda_weekend_down.csv in Resources */ = {isa = PBXBuildFile; fileRef = E900B1071EFB8CB4008C0B99 /* kimitsu_haneda_weekend_down.csv */; };
+		E900B10C1EFB8CB4008C0B99 /* kimitsu_haneda_weekend_up.csv in Resources */ = {isa = PBXBuildFile; fileRef = E900B1081EFB8CB4008C0B99 /* kimitsu_haneda_weekend_up.csv */; };
 		E90FF1DE1E463E2A004EF8A5 /* CommuteNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90FF1DD1E463E2A004EF8A5 /* CommuteNavigationController.swift */; };
 		E90FF1E01E4642E8004EF8A5 /* Timetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90FF1DF1E4642E8004EF8A5 /* Timetable.swift */; };
 		E91754DF1ECD975E00D9885D /* EBTColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91754DE1ECD975E00D9885D /* EBTColor.swift */; };
@@ -39,6 +43,10 @@
 		361BF0182998719B86C3329E /* Pods-ExpressBusTimetable.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExpressBusTimetable.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ExpressBusTimetable/Pods-ExpressBusTimetable.debug.xcconfig"; sourceTree = "<group>"; };
 		4A177AFB988C492F12930528 /* Pods-ExpressBusTimetable.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExpressBusTimetable.release.xcconfig"; path = "Pods/Target Support Files/Pods-ExpressBusTimetable/Pods-ExpressBusTimetable.release.xcconfig"; sourceTree = "<group>"; };
 		B61F582050662717F805E7AA /* Pods_ExpressBusTimetable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExpressBusTimetable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E900B1051EFB8CB4008C0B99 /* kimitsu_haneda_weekday_down.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = kimitsu_haneda_weekday_down.csv; sourceTree = "<group>"; };
+		E900B1061EFB8CB4008C0B99 /* kimitsu_haneda_weekday_up.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = kimitsu_haneda_weekday_up.csv; sourceTree = "<group>"; };
+		E900B1071EFB8CB4008C0B99 /* kimitsu_haneda_weekend_down.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = kimitsu_haneda_weekend_down.csv; sourceTree = "<group>"; };
+		E900B1081EFB8CB4008C0B99 /* kimitsu_haneda_weekend_up.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = kimitsu_haneda_weekend_up.csv; sourceTree = "<group>"; };
 		E90FF1DD1E463E2A004EF8A5 /* CommuteNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommuteNavigationController.swift; sourceTree = "<group>"; };
 		E90FF1DF1E4642E8004EF8A5 /* Timetable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timetable.swift; sourceTree = "<group>"; };
 		E91754DE1ECD975E00D9885D /* EBTColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EBTColor.swift; sourceTree = "<group>"; };
@@ -105,6 +113,10 @@
 		E9A912C71E45D4A400122710 /* Timetable */ = {
 			isa = PBXGroup;
 			children = (
+				E900B1051EFB8CB4008C0B99 /* kimitsu_haneda_weekday_down.csv */,
+				E900B1061EFB8CB4008C0B99 /* kimitsu_haneda_weekday_up.csv */,
+				E900B1071EFB8CB4008C0B99 /* kimitsu_haneda_weekend_down.csv */,
+				E900B1081EFB8CB4008C0B99 /* kimitsu_haneda_weekend_up.csv */,
 				E9A912C81E45D4A400122710 /* kimitsu_tokyo_weekday_down.csv */,
 				E9A912C91E45D4A400122710 /* kimitsu_tokyo_weekday_up.csv */,
 				E9A912CA1E45D4A400122710 /* kimitsu_tokyo_weekend_down.csv */,
@@ -134,7 +146,6 @@
 		E9DF48D71E45C5C700406528 /* ExpressBusTimetable */ = {
 			isa = PBXGroup;
 			children = (
-				E9F155D41EDA4B5900A03D02 /* ExpressBusTimetable.entitlements */,
 				E9FF96931EC09A2900A916B5 /* Controllers */,
 				E9FF96911EC0987700A916B5 /* Models */,
 				E9FF96901EC0983500A916B5 /* Resources */,
@@ -142,6 +153,7 @@
 				E98720431EC340FB00317115 /* Utils */,
 				E9FF96921EC09A2100A916B5 /* Views */,
 				E9DF48D81E45C5C700406528 /* AppDelegate.swift */,
+				E9F155D41EDA4B5900A03D02 /* ExpressBusTimetable.entitlements */,
 			);
 			path = ExpressBusTimetable;
 			sourceTree = "<group>";
@@ -269,14 +281,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E900B1091EFB8CB4008C0B99 /* kimitsu_haneda_weekday_down.csv in Resources */,
 				E9A912CE1E45D4A400122710 /* kimitsu_tokyo_weekend_down.csv in Resources */,
 				E98720421EC2B4EF00317115 /* GoogleService-Info.plist in Resources */,
 				E97E3F271EC98C4F00BA4AE2 /* Settings.bundle in Resources */,
 				E9DF48E31E45C5C700406528 /* LaunchScreen.storyboard in Resources */,
 				E9DF48E01E45C5C700406528 /* Assets.xcassets in Resources */,
+				E900B10A1EFB8CB4008C0B99 /* kimitsu_haneda_weekday_up.csv in Resources */,
 				E9A912CF1E45D4A400122710 /* kimitsu_tokyo_weekend_up.csv in Resources */,
 				E9DF48DE1E45C5C700406528 /* Main.storyboard in Resources */,
+				E900B10C1EFB8CB4008C0B99 /* kimitsu_haneda_weekend_up.csv in Resources */,
 				E9A912CD1E45D4A400122710 /* kimitsu_tokyo_weekday_up.csv in Resources */,
+				E900B10B1EFB8CB4008C0B99 /* kimitsu_haneda_weekend_down.csv in Resources */,
 				E9A912CC1E45D4A400122710 /* kimitsu_tokyo_weekday_down.csv in Resources */,
 				E94B9BE31EC59A5E00C51318 /* Commute.storyboard in Resources */,
 			);

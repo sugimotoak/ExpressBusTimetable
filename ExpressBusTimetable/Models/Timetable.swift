@@ -36,7 +36,17 @@ class Timetable {
     var countField = 0
     
     init(fileName: String) {
-        self.loadTimetable(fileName)
+        loadTimetable(fileName)
+    }
+    
+    func changeTimetable(fileName: String) {
+        busStopList = [String]()
+        onBusStopList = [String]()
+        offBusStopList = [String]()
+        busComList = [String]()
+        timetable = [[String]]()
+        countField = 0
+        loadTimetable(fileName)
     }
     
     func loadTimetable(_ fileName: String) {
@@ -143,31 +153,128 @@ class Timetable {
     }
 }
 
-class WeekdayUpTimetable: Timetable {
-    static let sharedInstance = WeekdayUpTimetable()
-    private init() {
-        super.init(fileName: "kimitsu_tokyo_weekday_up")
+public enum TimetableList: String {
+    case KIMITSU_TOKYO
+    case KIMITSU_HANEDA
+    
+    public static let list: [TimetableList] = [.KIMITSU_TOKYO, .KIMITSU_HANEDA]
+    public static let nameList = ["青掘駅・君津駅〜東京駅・浜松町駅", "君津駅〜羽田空港"]
+    
+    func getCsvList() -> [String] {
+        switch self {
+        case .KIMITSU_TOKYO:
+            return ["kimitsu_tokyo_weekday_up", "kimitsu_tokyo_weekday_down", "kimitsu_tokyo_weekend_up", "kimitsu_tokyo_weekend_down"]
+        case .KIMITSU_HANEDA:
+            return ["kimitsu_haneda_weekday_up", "kimitsu_haneda_weekday_down", "kimitsu_haneda_weekend_up", "kimitsu_haneda_weekend_down"]
+        }
+    }
+    
+    func getName() -> String {
+        return TimetableList.nameList[TimetableList.list.index(of: self)!]
+    }
+    
+    func getWeekdayUpTimetableCSVName() -> String {
+        return getCsvList()[0]
+    }
+    
+    func getWeekdayDownTimetableCSVName() -> String {
+        return getCsvList()[1]
+    }
+    
+    func getWeekendUpTimetableCSVName() -> String {
+        return getCsvList()[2]
+    }
+    
+    func getWeekendDownTimetableCSVName() -> String {
+        return getCsvList()[3]
     }
 }
 
-class WeekdayDownTimetable: Timetable {
-    static let sharedInstance = WeekdayDownTimetable()
+class WeekdayUpCommuteTimetable: Timetable {
+    static let sharedInstance = WeekdayUpCommuteTimetable()
     private init() {
-        super.init(fileName: "kimitsu_tokyo_weekday_down")
+        super.init(fileName: UserDefaults.timetableList.getWeekdayUpTimetableCSVName())
+    }
+    
+    public func reload() {
+        super.changeTimetable(fileName: UserDefaults.timetableList.getWeekdayUpTimetableCSVName())
     }
 }
 
-class WeekendUpTimetable: Timetable {
-    static let sharedInstance = WeekendUpTimetable()
+class WeekdayDownCommuteTimetable: Timetable {
+    static let sharedInstance = WeekdayDownCommuteTimetable()
     private init() {
-        super.init(fileName: "kimitsu_tokyo_weekend_up")
+        super.init(fileName: UserDefaults.timetableList.getWeekdayDownTimetableCSVName())
+    }
+    
+    public func reload() {
+        super.changeTimetable(fileName: UserDefaults.timetableList.getWeekdayDownTimetableCSVName())
     }
 }
 
-class WeekendDownTimetable: Timetable {
-    static let sharedInstance = WeekendDownTimetable()
+class WeekendUpCommuteTimetable: Timetable {
+    static let sharedInstance = WeekendUpCommuteTimetable()
     private init() {
-        super.init(fileName: "kimitsu_tokyo_weekend_down")
+        super.init(fileName: UserDefaults.timetableList.getWeekendUpTimetableCSVName())
+    }
+    
+    public func reload() {
+        super.changeTimetable(fileName: UserDefaults.timetableList.getWeekendUpTimetableCSVName())
+    }
+}
+
+class WeekendDownCommuteTimetable: Timetable {
+    static let sharedInstance = WeekendDownCommuteTimetable()
+    private init() {
+        super.init(fileName: UserDefaults.timetableList.getWeekendDownTimetableCSVName())
+    }
+    
+    public func reload() {
+        super.changeTimetable(fileName: UserDefaults.timetableList.getWeekendDownTimetableCSVName())
+    }
+}
+
+class WeekdayUpSearchTimetable: Timetable {
+    static let sharedInstance = WeekdayUpSearchTimetable()
+    private init() {
+        super.init(fileName: UserDefaults.searchTimetableList.getWeekdayUpTimetableCSVName())
+    }
+    
+    public func reload() {
+        super.changeTimetable(fileName: UserDefaults.searchTimetableList.getWeekdayUpTimetableCSVName())
+    }
+}
+
+class WeekdayDownSearchTimetable: Timetable {
+    static let sharedInstance = WeekdayDownSearchTimetable()
+    private init() {
+        super.init(fileName: UserDefaults.searchTimetableList.getWeekdayDownTimetableCSVName())
+    }
+    
+    public func reload() {
+        super.changeTimetable(fileName: UserDefaults.searchTimetableList.getWeekdayDownTimetableCSVName())
+    }
+}
+
+class WeekendUpSearchTimetable: Timetable {
+    static let sharedInstance = WeekendUpSearchTimetable()
+    private init() {
+        super.init(fileName: UserDefaults.searchTimetableList.getWeekendUpTimetableCSVName())
+    }
+    
+    public func reload() {
+        super.changeTimetable(fileName: UserDefaults.searchTimetableList.getWeekendUpTimetableCSVName())
+    }
+}
+
+class WeekendDownSearchTimetable: Timetable {
+    static let sharedInstance = WeekendDownSearchTimetable()
+    private init() {
+        super.init(fileName: UserDefaults.searchTimetableList.getWeekendDownTimetableCSVName())
+    }
+    
+    public func reload() {
+        super.changeTimetable(fileName: UserDefaults.searchTimetableList.getWeekendDownTimetableCSVName())
     }
 }
 

@@ -26,10 +26,38 @@ class SearchViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath {
+        case IndexPath(row: 0, section: 0):
+            let title = (tableView.cellForRow(at: indexPath)?.viewWithTag(2) as? UILabel)?.text
+            let label = tableView.cellForRow(at: indexPath)?.viewWithTag(1) as? UILabel
+            let list = TimetableList.nameList
+            log.debug("\(list)")
+            let selection = TimetableList.list.index(of: UserDefaults.searchTimetableList) ?? 0
+            log.debug("\(selection),\(UserDefaults.searchTimetableList)")
+            let picker = ActionSheetStringPicker(title: title,
+                                                 rows: list,
+                                                 initialSelection: selection,
+                                                 doneBlock: {
+                                                     _, selectedIndex, selectedValue in
+                                                     if selectedIndex != selection {
+                                                         let value: String = selectedValue as! String
+                                                         label?.text = value
+                                                         UserDefaults.searchTimetableList = TimetableList.list[selectedIndex]
+                                                         DispatchQueue.main.async { () -> Void in
+                                                             tableView.reloadData()
+                                                         }
+                                                     }
+                                                     tableView.deselectRow(at: indexPath, animated: true)
+                                                     return },
+                                                 cancel: { _ in
+                                                     tableView.deselectRow(at: indexPath, animated: true)
+                                                     return },
+                                                 origin: view)
+            picker?.show()
+            break
         case IndexPath(row: 1, section: 0):
             let title = (tableView.cellForRow(at: indexPath)?.viewWithTag(2) as? UILabel)?.text
             let label = tableView.cellForRow(at: indexPath)?.viewWithTag(1) as? UILabel
-            let timetableWeekDayUp = TimetableStatus.WeekdayUp.getTimetable()
+            let timetableWeekDayUp = TimetableStatus.WeekdayUp.getSearchTimetable()
             let list = timetableWeekDayUp.busStopList
             log.debug("\(list)")
             let selection = list.index(of: UserDefaults.searchOnBusStop) ?? 0
@@ -58,7 +86,7 @@ class SearchViewController: UITableViewController {
         case IndexPath(row: 2, section: 0):
             let title = (tableView.cellForRow(at: indexPath)?.viewWithTag(2) as? UILabel)?.text
             let label = tableView.cellForRow(at: indexPath)?.viewWithTag(1) as? UILabel
-            let timetableWeekDayUp = TimetableStatus.WeekdayUp.getTimetable()
+            let timetableWeekDayUp = TimetableStatus.WeekdayUp.getSearchTimetable()
             let list = timetableWeekDayUp.busStopList
             log.debug("\(list)")
             let selection = list.index(of: UserDefaults.searchOffBusStop) ?? 0
@@ -93,6 +121,11 @@ class SearchViewController: UITableViewController {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
         
         switch indexPath {
+        case IndexPath(row: 0, section: 0):
+            let timetableName = UserDefaults.searchTimetableList.getName()
+            let timetableLabel = cell.viewWithTag(1) as? UILabel
+            timetableLabel?.text = timetableName
+            break
         case IndexPath(item: 1, section: 0):
             let onBusStop = UserDefaults.searchOnBusStop
             let onBusStopLabel = cell.viewWithTag(1) as? UILabel

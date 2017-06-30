@@ -14,6 +14,9 @@ import Foundation
 public extension UserDefaults {
     
     // commute
+    static let KEY_TIMETABLE_LIST = "KEY_TIMETABLE_LIST"
+    static let DEFAULT_TIMETABLE_LIST = TimetableList.KIMITSU_TOKYO.rawValue
+    
     static let KEY_ONBUSSTOP = "KEY_ONBUSSTOP"
     static let DEFAULT_ONBUSSTOP = "杢師４丁目"
     
@@ -27,6 +30,9 @@ public extension UserDefaults {
     static let DEFAULT_TABLEVIEW_TYPE = "LIST"
     
     // search
+    static let KEY_SEARCH_TIMETABLE_LIST = "KEY_SEARCH_TIMETABLE_LIST"
+    static let DEFAULT_SEARCH_TIMETABLE_LIST = TimetableList.KIMITSU_TOKYO.rawValue
+    
     static let KEY_SEARCH_ONBUSSTOP = "KEY_SEARCH_ONBUSSTOP"
     static let DEFAULT_SEARCH_ONBUSSTOP = "杢師４丁目"
     
@@ -51,6 +57,24 @@ public extension UserDefaults {
     }
     
     // commute
+    static var timetableList: TimetableList {
+        get {
+            return TimetableList(rawValue: getValue(key: KEY_TIMETABLE_LIST, defaultValue: DEFAULT_TIMETABLE_LIST))!
+        }
+        set(value) {
+            standard.set(value.rawValue, forKey: KEY_TIMETABLE_LIST)
+            standard.synchronize()
+            WeekdayUpCommuteTimetable.sharedInstance.reload()
+            WeekdayDownCommuteTimetable.sharedInstance.reload()
+            WeekendUpCommuteTimetable.sharedInstance.reload()
+            WeekendDownCommuteTimetable.sharedInstance.reload()
+            let timetableWeekDayUp = TimetableStatus.WeekdayUp.getCommuteTimetable()
+            let list = timetableWeekDayUp.busStopList
+            onBusStop = list.first!
+            offBusStop = list.last!
+        }
+    }
+    
     static var onBusStop: String {
         get {
             return getValue(key: KEY_ONBUSSTOP, defaultValue: DEFAULT_ONBUSSTOP)
@@ -92,6 +116,24 @@ public extension UserDefaults {
     }
     
     // search
+    static var searchTimetableList: TimetableList {
+        get {
+            return TimetableList(rawValue: getValue(key: KEY_SEARCH_TIMETABLE_LIST, defaultValue: DEFAULT_SEARCH_TIMETABLE_LIST))!
+        }
+        set(value) {
+            standard.set(value.rawValue, forKey: KEY_SEARCH_TIMETABLE_LIST)
+            standard.synchronize()
+            WeekdayUpSearchTimetable.sharedInstance.reload()
+            WeekdayDownSearchTimetable.sharedInstance.reload()
+            WeekendUpSearchTimetable.sharedInstance.reload()
+            WeekendDownSearchTimetable.sharedInstance.reload()
+            let timetableWeekDayUp = TimetableStatus.WeekdayUp.getSearchTimetable()
+            let list = timetableWeekDayUp.busStopList
+            searchOnBusStop = list.first!
+            searchOffBusStop = list.last!
+        }
+    }
+    
     static var searchOnBusStop: String {
         get {
             return getValue(key: KEY_SEARCH_ONBUSSTOP, defaultValue: DEFAULT_SEARCH_ONBUSSTOP)

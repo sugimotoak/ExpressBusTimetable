@@ -29,16 +29,29 @@ public enum TimetableStatus: String {
         case TABLE
     }
     
-    func getTimetable() -> Timetable {
+    func getCommuteTimetable() -> Timetable {
         switch self {
         case .WeekdayUp:
-            return WeekdayUpTimetable.sharedInstance
+            return WeekdayUpCommuteTimetable.sharedInstance
         case .WeekdayDown:
-            return WeekdayDownTimetable.sharedInstance
+            return WeekdayDownCommuteTimetable.sharedInstance
         case .WeekendUp:
-            return WeekendUpTimetable.sharedInstance
+            return WeekendUpCommuteTimetable.sharedInstance
         case .WeekendDown:
-            return WeekendDownTimetable.sharedInstance
+            return WeekendDownCommuteTimetable.sharedInstance
+        }
+    }
+    
+    func getSearchTimetable() -> Timetable {
+        switch self {
+        case .WeekdayUp:
+            return WeekdayUpSearchTimetable.sharedInstance
+        case .WeekdayDown:
+            return WeekdayDownSearchTimetable.sharedInstance
+        case .WeekendUp:
+            return WeekendUpSearchTimetable.sharedInstance
+        case .WeekendDown:
+            return WeekendDownSearchTimetable.sharedInstance
         }
     }
     

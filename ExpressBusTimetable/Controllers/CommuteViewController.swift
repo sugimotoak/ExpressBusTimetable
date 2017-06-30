@@ -77,6 +77,10 @@ class CommuteViewController: UIViewController, GADBannerViewDelegate {
         }
     }
     
+    func getTimetable(_ timetableStatus: TimetableStatus) -> Timetable {
+        return isSearch ? timetableStatus.getSearchTimetable() : timetableStatus.getCommuteTimetable()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -113,7 +117,7 @@ class CommuteViewController: UIViewController, GADBannerViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let sct = timetableStatus.getTimetable().getCommuteTimetable(onBusStop, offBusStop)
+        let sct = getTimetable(timetableStatus).getCommuteTimetable(onBusStop, offBusStop)
         setSCT(sct)
         listTypeVC?.tableView.reloadData()
         tableTypeVC?.tableView.reloadData()
@@ -138,7 +142,7 @@ class CommuteViewController: UIViewController, GADBannerViewDelegate {
         
         swap(&onBusStop, &offBusStop)
         
-        let sct = timetableStatus.getTimetable().getCommuteTimetable(onBusStop, offBusStop)
+        let sct = getTimetable(timetableStatus).getCommuteTimetable(onBusStop, offBusStop)
         setSCT(sct)
         listTypeVC?.tableView.reloadData()
         tableTypeVC?.tableView.reloadData()
@@ -174,7 +178,7 @@ class CommuteViewController: UIViewController, GADBannerViewDelegate {
         default:
             break
         }
-        let sct = timetableStatus.getTimetable().getCommuteTimetable(UserDefaults.onBusStop, UserDefaults.offBusStop)
+        let sct = getTimetable(timetableStatus).getCommuteTimetable(UserDefaults.onBusStop, UserDefaults.offBusStop)
         setSCT(sct)
         listTypeVC?.tableView.reloadData()
         tableTypeVC?.tableView.reloadData()
