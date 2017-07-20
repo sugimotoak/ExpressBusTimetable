@@ -192,8 +192,11 @@ fastlane/screenshots/screenshots.html
 fastlane/test_output
 # End of https://www.gitignore.io/api/fastlane
 
+fastlane/metadata/review_information
+
 # Ignore bundler config.
 /.bundle
 
 # Ignore bundler gems.
 vendor/bundle
+
