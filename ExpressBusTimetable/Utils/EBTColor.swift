@@ -15,8 +15,8 @@ import ChameleonFramework
 public class EBTColor {
 
     public enum Theme: String {
-        case Default = "Default"
-        case White = "White"
+        case Default
+        case White
     }
 
     static let sharedInstance = EBTColor()
@@ -86,6 +86,18 @@ public class EBTColor {
         case .Default, .White :
             _sectionIndexBackgroundColor = primaryColor
             return _sectionIndexBackgroundColor!
+        }
+    }
+
+    private var _nextTimeColor: UIColor?
+    var nextTimeColor: UIColor {
+        if let color = _nextTimeColor {
+            return color
+        }
+        switch EBTColor.sharedInstance.theme {
+        case .Default, .White :
+            _nextTimeColor = UIColor.flatRed
+            return _nextTimeColor!
         }
     }
 

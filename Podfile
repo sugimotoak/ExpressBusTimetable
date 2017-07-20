@@ -17,7 +17,7 @@ target 'ExpressBusTimetable' do
   pod 'XCGLogger'
   pod "AAMFeedback"
   pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
-
+  pod 'SwiftDate', '~> 4.1.6'
 end
 
 # Acknowledgements 

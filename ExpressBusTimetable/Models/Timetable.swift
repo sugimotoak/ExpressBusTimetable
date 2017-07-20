@@ -8,6 +8,7 @@
 
 import Foundation
 import CSV
+import SwiftDate
 
 class Timetable {
     
@@ -286,20 +287,31 @@ class SectionizedCommuteTimetable {
     
     init(_ commuteTimetableArray: [CommuteTimetable]) {
         self.commuteTimetableArray = commuteTimetableArray
+        let now = Date().inRegion(region: Region.init(tz: TimeZoneName.asiaTokyo, cal: CalendarName.gregorian, loc: LocaleName.japaneseJapan))
+        var isNextBusStopTime = false
         
-        var preIndex = ""
+        var preHour = ""
         for ct in commuteTimetableArray {
-            if let range = ct.onBusStopTime.range(of: "\\d{2}", options: .regularExpression, range: nil, locale: .current) {
-                let index = ct.onBusStopTime.substring(with: range)
-                if index != preIndex {
-                    sectionNames.append(index + ":00")
-                    sectionIndexes.append(index)
-                    array.append([ct])
-                } else {
-                    array[array.endIndex - 1].append(ct)
+            let hour = ct.onBusStopHour
+            let minute = ct.onBusStopMinute
+            if !isNextBusStopTime {
+                if let time = now.atTime(hour: Int(hour)!, minute: Int(minute)!, second: 0) {
+                    if now < time {
+                        isNextBusStopTime = true
+                        ct.isNext = true
+                    }
                 }
-                preIndex = index
             }
+            
+            if hour != preHour {
+                sectionNames.append(hour + ":00")
+                sectionIndexes.append(hour)
+                array.append([ct])
+            } else {
+                array[array.endIndex - 1].append(ct)
+            }
+            preHour = hour
+            
         }
         
     }
@@ -309,13 +321,18 @@ class CommuteTimetable {
     let onBusStopTime: String
     let offBusStopTime: String
     let destinationBusStop: String
+    var isNext = false
     
     var onOffBusStopTime: String {
         return "\(onBusStopTime) - \(offBusStopTime)"
     }
     
+    var onBusStopHour: String {
+        return onBusStopTime.substring(to: onBusStopTime.index(onBusStopTime.startIndex, offsetBy: 2))
+    }
+    
     var onBusStopMinute: String {
-        return offBusStopTime.substring(from: offBusStopTime.index(offBusStopTime.endIndex, offsetBy: -2))
+        return onBusStopTime.substring(from: onBusStopTime.index(onBusStopTime.endIndex, offsetBy: -2))
     }
     
     init(_ onBusStopTime: String, _ offBusStopTime: String, _ destinationBusStop: String) {

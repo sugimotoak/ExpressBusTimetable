@@ -14,6 +14,21 @@ class ListTypeCommuteTableViewController: CommuteTableViewController {
         super.viewDidLoad()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        for (section, item) in sct.array.enumerated() {
+            for (row, ct) in item.enumerated() {
+                if ct.isNext {
+                    self.tableView.scrollToRow(at: IndexPath(row: row, section: section),
+                                               at: UITableViewScrollPosition.middle,
+                                               animated: false)
+                    break
+                }
+            }
+        }
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -33,8 +48,16 @@ class ListTypeCommuteTableViewController: CommuteTableViewController {
         cell.backgroundColor = EBTColor.sharedInstance.secondaryColor
         timeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 17, weight: UIFontWeightLight)
         timeLabel.text = timetable.onOffBusStopTime
-        timeLabel.textColor = EBTColor.sharedInstance.secondaryTextColor
+        destinationLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 16, weight: UIFontWeightLight)
         destinationLabel.text = timetable.destinationBusStop
+
+        if timetable.isNext {
+            timeLabel.textColor = EBTColor.sharedInstance.nextTimeColor
+            destinationLabel.textColor = EBTColor.sharedInstance.nextTimeColor
+        } else {
+            timeLabel.textColor = EBTColor.sharedInstance.secondaryTextColor
+            destinationLabel.textColor = EBTColor.sharedInstance.secondaryTextColor
+        }
 
         return cell
     }

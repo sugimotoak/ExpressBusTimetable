@@ -14,6 +14,21 @@ class TableTypeCommuteTableViewController: CommuteTableViewController {
         super.viewDidLoad()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        for (section, item) in sct.array.enumerated() {
+            for (_, ct) in item.enumerated() {
+                if ct.isNext {
+                    self.tableView.scrollToRow(at: IndexPath(row: 0, section: section),
+                                               at: UITableViewScrollPosition.middle,
+                                               animated: false)
+                    break
+                }
+            }
+        }
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -28,13 +43,28 @@ class TableTypeCommuteTableViewController: CommuteTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "tableCell")
         var minuteList = [String]()
-        for ct in sct.array[indexPath.section] {
+        var nextBusStopMinuteIndex: Int?
+        sct.array[indexPath.section].enumerated().forEach { index, ct in
             minuteList.append(ct.onBusStopMinute)
+            if ct.isNext {
+                nextBusStopMinuteIndex = index
+            }
         }
+        let text = minuteList.joined(separator: "　")
         cell.backgroundColor = EBTColor.sharedInstance.secondaryColor
         cell.textLabel?.font = UIFont.monospacedDigitSystemFont(ofSize: 17, weight: UIFontWeightLight)
-        cell.textLabel?.text = minuteList.joined(separator: "　")
         cell.textLabel?.textColor = EBTColor.sharedInstance.secondaryTextColor
+
+        if let index = nextBusStopMinuteIndex {
+            let attrText = NSMutableAttributedString(string: text)
+            let startIndex = index * 3
+            attrText.addAttributes([NSForegroundColorAttributeName: EBTColor.sharedInstance.nextTimeColor],
+                                   range: NSMakeRange(startIndex, 2))
+            cell.textLabel?.attributedText = attrText
+        } else {
+            cell.textLabel?.text = text
+        }
+
         return cell
     }
 
