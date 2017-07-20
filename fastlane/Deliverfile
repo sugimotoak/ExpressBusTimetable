@@ -8,3 +8,10 @@
 
 app_identifier "net.spreadcontent.ExpressBusTimetable" # The bundle identifier of your app
 username "sugimotoak@gmail.com" # your Apple ID user
+
+
+submit_for_review false
+force false
+skip_screenshots true
+skip_metadata false
+skip_binary_upload false
