@@ -52,13 +52,13 @@ class TableTypeCommuteTableViewController: CommuteTableViewController {
         }
         let text = minuteList.joined(separator: "　")
         cell.backgroundColor = EBTColor.sharedInstance.secondaryColor
-        cell.textLabel?.font = UIFont.monospacedDigitSystemFont(ofSize: 17, weight: UIFontWeightLight)
+        cell.textLabel?.font = UIFont.monospacedDigitSystemFont(ofSize: 17, weight: UIFont.Weight.light)
         cell.textLabel?.textColor = EBTColor.sharedInstance.secondaryTextColor
 
         if let index = nextBusStopMinuteIndex {
             let attrText = NSMutableAttributedString(string: text)
             let startIndex = index * 3
-            attrText.addAttributes([NSForegroundColorAttributeName: EBTColor.sharedInstance.nextTimeColor],
+            attrText.addAttributes([NSAttributedStringKey.foregroundColor: EBTColor.sharedInstance.nextTimeColor],
                                    range: NSMakeRange(startIndex, 2))
             cell.textLabel?.attributedText = attrText
         } else {

@@ -46,9 +46,9 @@ class ListTypeCommuteTableViewController: CommuteTableViewController {
         let timeLabel = cell.contentView.viewWithTag(1) as! UILabel
         let destinationLabel = cell.contentView.viewWithTag(2) as! UILabel
         cell.backgroundColor = EBTColor.sharedInstance.secondaryColor
-        timeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 17, weight: UIFontWeightLight)
+        timeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 17, weight: UIFont.Weight.light)
         timeLabel.text = timetable.onOffBusStopTime
-        destinationLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 16, weight: UIFontWeightLight)
+        destinationLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 16, weight: UIFont.Weight.light)
         destinationLabel.text = timetable.destinationBusStop
 
         if timetable.isNext {

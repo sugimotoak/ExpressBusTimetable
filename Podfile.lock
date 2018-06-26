@@ -1,61 +1,69 @@
 PODS:
-  - AAMFeedback (0.6.0):
+  - AAMFeedback (0.7.6):
     - UIDeviceIdentifier
-  - ActionSheetPicker-3.0 (2.2.0)
+  - ActionSheetPicker-3.0 (2.3.0)
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
-  - CSV.swift (1.1.2)
-  - Firebase/AdMob (3.17.0):
+  - CSV.swift (2.2.1)
+  - Firebase/AdMob (5.3.0):
     - Firebase/Core
-    - Google-Mobile-Ads-SDK (= 7.19.1)
-  - Firebase/Core (3.17.0):
-    - FirebaseAnalytics (= 3.9.0)
-    - FirebaseCore (= 3.6.0)
-  - Firebase/Crash (3.17.0):
+    - Google-Mobile-Ads-SDK (= 7.31.0)
+  - Firebase/Core (5.3.0):
+    - Firebase/CoreOnly
+    - FirebaseAnalytics (= 5.0.1)
+  - Firebase/CoreOnly (5.3.0):
+    - FirebaseCore (= 5.0.4)
+  - Firebase/Crash (5.3.0):
     - Firebase/Core
-    - FirebaseCrash (= 1.1.6)
-  - FirebaseAnalytics (3.9.0):
-    - FirebaseCore (~> 3.6)
-    - FirebaseInstanceID (~> 1.0)
+    - FirebaseCrash (= 3.0.0)
+  - FirebaseAnalytics (5.0.1):
+    - FirebaseCore (~> 5.0)
+    - FirebaseInstanceID (~> 3.0)
     - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
-  - FirebaseCore (3.6.0):
+    - nanopb (~> 0.3)
+  - FirebaseCore (5.0.4):
     - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
-  - FirebaseCrash (1.1.6):
-    - FirebaseAnalytics (~> 3.7)
-    - FirebaseInstanceID (~> 1.0)
+  - FirebaseCrash (3.0.0):
+    - FirebaseAnalytics (~> 5.0)
+    - FirebaseInstanceID (~> 3.0)
     - GoogleToolboxForMac/Logger (~> 2.1)
     - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
-    - Protobuf (~> 3.1)
-  - FirebaseInstanceID (1.0.10):
-    - FirebaseCore (~> 3.6)
-  - Google-Mobile-Ads-SDK (7.19.1)
-  - GoogleToolboxForMac/Defines (2.1.1)
-  - GoogleToolboxForMac/Logger (2.1.1):
-    - GoogleToolboxForMac/Defines (= 2.1.1)
-  - "GoogleToolboxForMac/NSData+zlib (2.1.1)":
-    - GoogleToolboxForMac/Defines (= 2.1.1)
+    - Protobuf (~> 3.5)
+  - FirebaseInstanceID (3.1.1):
+    - FirebaseCore (~> 5.0)
+  - Google-Mobile-Ads-SDK (7.31.0)
+  - GoogleToolboxForMac/Defines (2.1.4)
+  - GoogleToolboxForMac/Logger (2.1.4):
+    - GoogleToolboxForMac/Defines (= 2.1.4)
+  - "GoogleToolboxForMac/NSData+zlib (2.1.4)":
+    - GoogleToolboxForMac/Defines (= 2.1.4)
+  - nanopb (0.3.8):
+    - nanopb/decode (= 0.3.8)
+    - nanopb/encode (= 0.3.8)
+  - nanopb/decode (0.3.8)
+  - nanopb/encode (0.3.8)
   - ObjcExceptionBridging (1.0.1):
     - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
   - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
-  - Protobuf (3.3.0)
-  - SwiftDate (4.1.6)
-  - SwiftyStoreKit (0.13.1)
-  - UIDeviceIdentifier (1.0.3)
-  - XCGLogger (5.0.1):
-    - XCGLogger/Core (= 5.0.1)
-  - XCGLogger/Core (5.0.1):
+  - Protobuf (3.6.0)
+  - SwiftDate (4.5.1)
+  - SwiftyStoreKit (0.13.2)
+  - UIDeviceIdentifier (1.1.1)
+  - XCGLogger (6.0.4):
+    - XCGLogger/Core (= 6.0.4)
+  - XCGLogger/Core (6.0.4):
     - ObjcExceptionBridging
 
 DEPENDENCIES:
   - AAMFeedback
   - ActionSheetPicker-3.0
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
-  - CSV.swift (~> 1.1)
+  - CSV.swift
   - Firebase/AdMob
   - Firebase/Core
   - Firebase/Crash
-  - SwiftDate (~> 4.1.6)
+  - SwiftDate
   - SwiftyStoreKit
   - XCGLogger
 
@@ -71,6 +79,7 @@ SPEC REPOS:
     - FirebaseInstanceID
     - Google-Mobile-Ads-SDK
     - GoogleToolboxForMac
+    - nanopb
     - ObjcExceptionBridging
     - Protobuf
     - SwiftDate
@@ -84,28 +93,29 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   ChameleonFramework:
-    :commit: acc480fbe023c6e5fe40f68593f4a70a8c4c7ad5
+    :commit: 6dd284bde21ea2e7f9fd89bc36f40df16e16369d
     :git: https://github.com/ViccAlexander/Chameleon.git
 
 SPEC CHECKSUMS:
-  AAMFeedback: 2aa6e0e63991444856807d12dab24cd619b9e949
-  ActionSheetPicker-3.0: d11a4c12c6aaf704b8a3f56d179198c99f3e41e6
+  AAMFeedback: e4334f80d96aabf25f1f519a344c687d4f97f86c
+  ActionSheetPicker-3.0: eef157d75e151f255c5333d26656c7fbfe905a51
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
-  CSV.swift: 0aad3b06980034c8fa296456b708ac9128ebbdf9
-  Firebase: 4b66b5b59c43edac745b87f0c87e42cdd0279c13
-  FirebaseAnalytics: e5fe8486efc01bec33f6bf82e2fa9fce4b124052
-  FirebaseCore: 9691ee2ade70c098d7cf92440f4303f16d83ca75
-  FirebaseCrash: db4c05d9c75baa050744d31b36357c8f1efba481
-  FirebaseInstanceID: b9eedd6846fb5e1f0f7279e1deaa7a7e4cf8392e
-  Google-Mobile-Ads-SDK: 43ac87810e4961f5093024d3525bfe022f956da3
-  GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
+  CSV.swift: 5bf3338aff82371cb51cc6dc559d7b45a74bab14
+  Firebase: 68afeeb05461db02d7c9e3215cda28068670f4aa
+  FirebaseAnalytics: b3628aea54c50464c32c393fb2ea032566e7ecc2
+  FirebaseCore: 62f1b792a49bb9e8b4073f24606d2c93ffc352f0
+  FirebaseCrash: 8900571fd763fd5bdda04522ec53da979456e3ce
+  FirebaseInstanceID: f3f0657372592ecdfdfe2cac604a5a75758376a6
+  Google-Mobile-Ads-SDK: 6e529e748b45507a2ca904e0b5a52669ba3920c4
+  GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
+  nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
-  Protobuf: d582fecf68201eac3d79ed61369ef45734394b9c
-  SwiftDate: 6bae71add23ce9f16ec2be3a521b21000da5804b
-  SwiftyStoreKit: c36bb7841dd51a485ce5c38abf9e96fba988741f
-  UIDeviceIdentifier: 3d1bf1348e27546c8ebeef2f02ce11ddb32730e7
-  XCGLogger: 0b43697155d41e4a1b15fc776f319c2141646b09
+  Protobuf: 0fc0ad8bec688b2a3017a139953e01374fedbd5f
+  SwiftDate: 7b56d42a221f582047287deb256b23fc5ed49a60
+  SwiftyStoreKit: b7563505440a68c9d9fa70bc43d8a97015519409
+  UIDeviceIdentifier: 9281343882e24460235f00a0d7d2fc04a65688c6
+  XCGLogger: 4fc1bc0bdd5828cb8dc8da7a843536cda1bea8f3
 
-PODFILE CHECKSUM: df4ccbe787b7288666f30bb9d96d25e23f37eaa8
+PODFILE CHECKSUM: 96977a44caeeaea8e0062d81b476bc8e8237d277
 
 COCOAPODS: 1.5.0

@@ -9,7 +9,7 @@ target 'ExpressBusTimetable' do
   inhibit_all_warnings!
 
   # Pods for ExpressBusTimetable
-  pod 'CSV.swift', '~> 1.1'
+  pod 'CSV.swift'
   pod 'ActionSheetPicker-3.0'
   pod 'Firebase/Core'
   pod 'Firebase/AdMob'
@@ -17,7 +17,7 @@ target 'ExpressBusTimetable' do
   pod 'XCGLogger'
   pod "AAMFeedback"
   pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
-  pod 'SwiftDate', '~> 4.1.6'
+  pod 'SwiftDate'
   pod 'SwiftyStoreKit'
 end
 

@@ -49,13 +49,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Set Color
         EBTColor.sharedInstance.theme = UserDefaults.colorTheme
-        FIRAnalytics.setUserPropertyString(EBTColor.sharedInstance.theme.rawValue, forName: "theme_color")
+        Analytics.setUserProperty(EBTColor.sharedInstance.theme.rawValue, forName: "theme_color")
         let primaryColor = EBTColor.sharedInstance.primaryColor
         let tintColor = EBTColor.sharedInstance.tintColor
         UINavigationBar.appearance().barTintColor = primaryColor
         UINavigationBar.appearance().isTranslucent = false
         let textColor = EBTColor.sharedInstance.primaryTextColor
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: textColor]
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: textColor]
         UINavigationBar.appearance().tintColor = tintColor
         if !EBTColor.sharedInstance.isPrimaryTextColorBlack {
             UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
@@ -65,7 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().isTranslucent = false
 
         // Use Firebase library to configure APIs
-        FIRApp.configure()
+        FirebaseApp.configure()
         GADMobileAds.configure(withApplicationID: "ca-app-pub-4629563331084064~1123430830")
 
         return true
