@@ -18,14 +18,14 @@ PODS:
   - FirebaseAnalytics (3.9.0):
     - FirebaseCore (~> 3.6)
     - FirebaseInstanceID (~> 1.0)
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
   - FirebaseCore (3.6.0):
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
   - FirebaseCrash (1.1.6):
     - FirebaseAnalytics (~> 3.7)
     - FirebaseInstanceID (~> 1.0)
     - GoogleToolboxForMac/Logger (~> 2.1)
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
     - Protobuf (~> 3.1)
   - FirebaseInstanceID (1.0.10):
     - FirebaseCore (~> 3.6)
@@ -33,13 +33,14 @@ PODS:
   - GoogleToolboxForMac/Defines (2.1.1)
   - GoogleToolboxForMac/Logger (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
-  - GoogleToolboxForMac/NSData+zlib (2.1.1):
+  - "GoogleToolboxForMac/NSData+zlib (2.1.1)":
     - GoogleToolboxForMac/Defines (= 2.1.1)
   - ObjcExceptionBridging (1.0.1):
     - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
   - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
   - Protobuf (3.3.0)
   - SwiftDate (4.1.6)
+  - SwiftyStoreKit (0.13.1)
   - UIDeviceIdentifier (1.0.3)
   - XCGLogger (5.0.1):
     - XCGLogger/Core (= 5.0.1)
@@ -55,7 +56,27 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Crash
   - SwiftDate (~> 4.1.6)
+  - SwiftyStoreKit
   - XCGLogger
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - AAMFeedback
+    - ActionSheetPicker-3.0
+    - CSV.swift
+    - Firebase
+    - FirebaseAnalytics
+    - FirebaseCore
+    - FirebaseCrash
+    - FirebaseInstanceID
+    - Google-Mobile-Ads-SDK
+    - GoogleToolboxForMac
+    - ObjcExceptionBridging
+    - Protobuf
+    - SwiftDate
+    - SwiftyStoreKit
+    - UIDeviceIdentifier
+    - XCGLogger
 
 EXTERNAL SOURCES:
   ChameleonFramework:
@@ -81,9 +102,10 @@ SPEC CHECKSUMS:
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
   Protobuf: d582fecf68201eac3d79ed61369ef45734394b9c
   SwiftDate: 6bae71add23ce9f16ec2be3a521b21000da5804b
+  SwiftyStoreKit: c36bb7841dd51a485ce5c38abf9e96fba988741f
   UIDeviceIdentifier: 3d1bf1348e27546c8ebeef2f02ce11ddb32730e7
   XCGLogger: 0b43697155d41e4a1b15fc776f319c2141646b09
 
-PODFILE CHECKSUM: 3025d8565ee2d9799a292b35ad017191083615e7
+PODFILE CHECKSUM: df4ccbe787b7288666f30bb9d96d25e23f37eaa8
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.5.0
