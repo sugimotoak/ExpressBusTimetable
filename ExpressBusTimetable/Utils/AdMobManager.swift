@@ -13,7 +13,7 @@ class AdMobManager {
 
     static func getRequest() -> GADRequest {
         let request = GADRequest()
-        #if (arch(i386) || arch(x86_64)) && os(iOS)
+        #if targetEnvironment(simulator)
             request.testDevices = [kGADSimulatorID]
         #endif
         return request

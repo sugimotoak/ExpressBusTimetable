@@ -328,11 +328,11 @@ class CommuteTimetable {
     }
     
     var onBusStopHour: String {
-        return onBusStopTime.substring(to: onBusStopTime.index(onBusStopTime.startIndex, offsetBy: 2))
+        return String(onBusStopTime.prefix(2))
     }
     
     var onBusStopMinute: String {
-        return onBusStopTime.substring(from: onBusStopTime.index(onBusStopTime.endIndex, offsetBy: -2))
+        return String(onBusStopTime.suffix(2))
     }
     
     init(_ onBusStopTime: String, _ offBusStopTime: String, _ destinationBusStop: String) {
@@ -344,7 +344,7 @@ class CommuteTimetable {
     static func formatTime(_ time: String) -> String {
         let addZero = "0" + time
         if let range = addZero.range(of: "\\d{2}:\\d{2}", options: .regularExpression, range: nil, locale: .current) {
-            return addZero.substring(with: range)
+            return String(addZero[range])
         }
         return time
     }
